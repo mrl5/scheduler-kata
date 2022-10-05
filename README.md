@@ -1,5 +1,11 @@
 # scheduler kata
 
+```console
+make test lint build serve
+```
+```console
+curl -i 0.0.0.0:3000/health
+```
 ![almost ready](https://pbs.twimg.com/media/FYwPdWEWYAQUUlE?format=jpg&name=medium)
 
 https://twitter.com/supabase/status/1552632972259561475/photo/1
@@ -30,3 +36,7 @@ https://en.wikipedia.org/wiki/Kata
 https://en.wikipedia.org/wiki/Kata#Outside_martial_arts
 
 > More recently kata has come to be used in English in a more general or figurative sense, referring to any basic form, routine, or pattern of behavior that is practised to various levels of mastery.
+
+
+## Howto
+TBD
