@@ -1,0 +1,11 @@
+import axios from 'axios';
+
+const addr = 'http://0.0.0.0:3000';
+const client = axios.create({
+    timeout: 20 * 1000,
+});
+
+export async function healthCheck() {
+    const url = new URL(`${addr}/health`);
+    return client.get(url.toString());
+}

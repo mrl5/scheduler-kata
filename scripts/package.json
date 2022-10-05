@@ -1,0 +1,32 @@
+{
+  "name": "scripts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "BSD-2-Clause",
+  "scripts": {
+    "test": "mocha ."
+  },
+  "engines": {
+    "node": ">=16",
+    "yarn": "^1.22.5"
+  },
+  "dependencies": {
+    "avantation": "^2.0.5",
+    "axios": "^1.0.0"
+  },
+  "devDependencies": {
+    "@pollyjs/adapter-node-http": "^6.0.5",
+    "@pollyjs/core": "^6.0.5",
+    "@pollyjs/persister-fs": "^6.0.5",
+    "chai": "^4.3.6",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^7.32.0 || ^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-mocha": "^10.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "mocha": "^10.0.0",
+    "prettier": "^2.7.1"
+  }
+}
