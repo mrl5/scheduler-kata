@@ -1,0 +1,59 @@
+---
+  openapi: "3.0.0"
+  info: 
+    version: "1.0"
+    title: "Avantation REST Template"
+    description: "TODO: Add Description"
+  servers: 
+    - 
+      url: "{scheme}://0.0.0.0:3000/{basePath}"
+      variables: 
+        scheme: 
+          enum: 
+            - "https"
+            - "http"
+          default: "http"
+        basePath: 
+          default: ""
+  tags: 
+    - 
+      name: "health"
+  components: 
+    schemas: 
+      ErrorModel: 
+        type: "object"
+        properties: 
+          code: 
+            type: "string"
+    securitySchemes: 
+      JWT: 
+        description: "You can create a JSON Web Token (JWT) during auth.\nUsage format: `Bearer <JWT>`\n"
+        name: "Authorization"
+        type: "apiKey"
+        in: "header"
+  paths: 
+    /health: 
+      get: 
+        security: []
+        tags: 
+          - "health"
+        summary: "health"
+        parameters: []
+        responses: 
+          200: 
+            description: "OK"
+            content: 
+              application/json: 
+                schema: 
+                  type: "object"
+                  properties: 
+                    status: 
+                      type: "string"
+                example: 
+                  status: "Healthy"
+          default: 
+            description: "Unexpected error"
+            content: 
+              application/json: 
+                example: 
+                  message: "Sorry unable to perform operation."

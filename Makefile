@@ -21,6 +21,11 @@ test:
 	cargo test
 .PHONY: test
 
+e2e:
+	cd scripts
+	make test
+.PHONY: e2e
+
 lint: fmt
 	cargo clippy --fix --allow-staged
 .PHONY: lint
