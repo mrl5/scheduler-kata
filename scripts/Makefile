@@ -9,6 +9,10 @@ install:
 	yarn install --frozen-lockfile --ignore-scripts
 .PHONY: install
 
-test:
+clean:
+	rm -rf recordings/*
+.PHONY: clean
+
+test: clean
 	yarn run test
 .PHONY: test

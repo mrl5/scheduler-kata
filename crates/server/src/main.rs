@@ -1,16 +1,21 @@
-use ::tracing::{field, Span};
 use axum::{response::Json, routing::get, Router, Server};
 use hyper::Response;
 use serde::Serialize;
 use tower::ServiceBuilder;
 use tower_http::trace::{MakeSpan, OnResponse, TraceLayer};
+use tracing::{field, Level, Span};
+use tracing_subscriber::FmtSubscriber;
 
 const ADDR: &str = "0.0.0.0:3000";
 
 #[tokio::main]
 async fn main() {
-    // todo: LOGS? where are logs? :D
-    tracing_subscriber::fmt::init();
+    let subscriber = FmtSubscriber::builder()
+        .with_max_level(Level::DEBUG)
+        .finish();
+    tracing::subscriber::set_global_default(subscriber).expect("setting default subscriber failed");
+
+    tracing::debug!("tracing initiated");
     let middleware_stack = ServiceBuilder::new().layer(
         TraceLayer::new_for_http()
             .on_response(MyOnResponse {})
@@ -18,12 +23,13 @@ async fn main() {
             .on_request(()),
     );
     // note: issues with setting up the logs
+    // update: I was probably confused with my own tests ... :/
 
     let app = Router::new()
         .route("/health", get(run_healthcheck))
         .layer(middleware_stack);
 
-    println!("Starting server ...");
+    tracing::info!("Starting server ...");
     let server = Server::bind(&ADDR.parse().unwrap()).serve(app.into_make_service());
     println!("Server running at {}", ADDR);
     server.await.unwrap();
