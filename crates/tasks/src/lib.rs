@@ -2,6 +2,7 @@ use svix_ksuid::{Ksuid, KsuidLike};
 use thiserror::Error;
 use time::OffsetDateTime;
 
+#[derive(Eq, Debug, PartialEq)]
 pub struct Task {
     pub id: Ksuid,
     pub task_type: TaskType,
