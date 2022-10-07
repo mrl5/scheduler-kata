@@ -5,7 +5,7 @@ use serde::{Deserialize, Serialize};
 use std::collections::VecDeque;
 use std::thread::sleep;
 use std::time::Duration;
-use tasks::{Task, TaskType};
+use crate::task::{Task, TaskType};
 use time::OffsetDateTime;
 use tokio::spawn;
 use tokio::sync::broadcast::{self, Receiver, Sender};
@@ -16,7 +16,7 @@ lazy_static! {
     static ref TASK_EVENT_CHANNEL: (Sender<Task>, Receiver<Task>) = broadcast::channel::<Task>(16);
 }
 
-pub fn service() -> Router {
+pub fn routes() -> Router {
     Router::new().route("/create", post(create_task))
 }
 
@@ -60,7 +60,7 @@ async fn create_task(Json(body): Json<NewTaskReq>) -> (StatusCode, Json<NewTaskR
     }
 }
 
-pub async fn run_workers() -> anyhow::Result<()> {
+pub async fn run_scheduler() -> anyhow::Result<()> {
     let tx = &TASK_EVENT_CHANNEL.0.clone();
     let mut task_event_rx = tx.subscribe();
     let (worker_tx, mut worker_rx) = mpsc::unbounded_channel::<Task>();
