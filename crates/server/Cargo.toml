@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-workers = { path = "../workers" }
+scheduler = { path = "../scheduler" }
 anyhow = "^1.0.65"
 axum = { version = "^0.5.16", features = ["headers"] }
 hyper = { version = "^0.14.20", features = ["full"] }
