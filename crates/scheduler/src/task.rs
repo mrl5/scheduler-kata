@@ -5,6 +5,8 @@ use time::OffsetDateTime;
 
 #[derive(Eq, Debug, PartialEq, Clone)]
 pub struct Task {
+    // note: normally I'd use uuidv4 but it was fun to learn about Ksuid :D
+    // btw I have minor feedback regarding using this library
     pub id: Ksuid,
     pub task_type: TaskType,
     pub execution_time: OffsetDateTime,

@@ -1,15 +1,14 @@
 use crate::task::{Task, TaskType};
+use crate::worker::some_computation;
 use axum::http::StatusCode;
 use axum::{routing::post, Json, Router};
 use lazy_static::lazy_static;
 use serde::{Deserialize, Serialize};
 use std::collections::VecDeque;
-use std::thread::sleep;
-use std::time::Duration;
 use time::OffsetDateTime;
 use tokio::spawn;
 use tokio::sync::broadcast::{self, Receiver, Sender};
-use tokio::sync::mpsc::{self, UnboundedSender};
+use tokio::sync::mpsc::{self};
 use tokio::task::spawn_blocking;
 
 lazy_static! {
@@ -76,7 +75,11 @@ pub async fn run_scheduler() -> anyhow::Result<()> {
                 // maybe resubscribe with retries and then panic?
             }
 
-            // todo: propose to discuss potential issue with this solution
+            // note: propose to discuss potential issue with this solution
+            // update: "Tokio will spawn more blocking threads when they are requested through this
+            // function until the upper limit configured on the Builder is reached. After reaching
+            // the upper limit, the tasks are put in a queue."
+            // -> seems like saturation should not wreck havoc
             while let Some(task) = pending_queue.pop_front() {
                 if !task.can_be_started() {
                     pending_queue.push_back(task);
@@ -96,23 +99,4 @@ pub async fn run_scheduler() -> anyhow::Result<()> {
     }
 
     Ok(())
-}
-
-fn some_computation(mut task: Task, tx: UnboundedSender<Task>) -> anyhow::Result<()> {
-    let block_period = Duration::from_secs(5);
-    let id = task.id.to_string();
-
-    let res = task.set_as_running();
-    match res {
-        Ok(_) => tracing::info!("started task {}", id),
-        Err(_) => tracing::error!("failed to run task {}", id),
-    }
-
-    sleep(block_period);
-    match task.set_as_completed() {
-        Ok(_) => tracing::info!("completed task {}", id),
-        Err(_) => tracing::error!("unable to mark task {} as completed", id),
-    };
-
-    Ok(tx.send(task)?)
 }
