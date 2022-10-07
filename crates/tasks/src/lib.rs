@@ -1,8 +1,9 @@
+use serde::{Deserialize, Serialize};
 use svix_ksuid::{Ksuid, KsuidLike};
 use thiserror::Error;
 use time::OffsetDateTime;
 
-#[derive(Eq, Debug, PartialEq)]
+#[derive(Eq, Debug, PartialEq, Clone)]
 pub struct Task {
     pub id: Ksuid,
     pub task_type: TaskType,
@@ -10,14 +11,14 @@ pub struct Task {
     status: TaskStatus,
 }
 
-#[derive(Eq, Debug, Hash, PartialEq)]
+#[derive(Eq, Debug, Hash, PartialEq, Serialize, Deserialize, Clone)]
 pub enum TaskType {
     TypeA,
     TypeB,
     TypeC,
 }
 
-#[derive(Eq, Debug, Hash, PartialEq)]
+#[derive(Eq, Debug, Hash, PartialEq, Serialize, Deserialize, Clone)]
 pub enum TaskStatus {
     Pending,
     Running,

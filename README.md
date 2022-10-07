@@ -6,6 +6,13 @@ make test lint build serve
 ```console
 curl -i 0.0.0.0:3000/health
 ```
+```console
+make e2e
+```
+* [ ] HTTP POST /task
+* [ ] HTTP GET /tasks
+* [ ] HTTP GET /task/:id
+* [ ] HTTP DELETE /task/:id
 ![almost ready](https://pbs.twimg.com/media/FYwPdWEWYAQUUlE?format=jpg&name=medium)
 
 https://twitter.com/supabase/status/1552632972259561475/photo/1
