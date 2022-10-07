@@ -20,14 +20,21 @@ async fn main() -> anyhow::Result<()> {
     // update: I was probably confused with my own tests ... :/
 
     let app = Router::new()
+        .nest("/task", workers::service())
         .route("/health", get(run_healthcheck))
         .layer(middleware_stack);
 
     tracing::info!("Starting server ...");
-    let server = Server::bind(&ADDR.parse()?).serve(app.into_make_service());
+    let server = async {
+        Server::bind(&ADDR.parse()?)
+            .serve(app.into_make_service())
+            .await?;
+        Ok(()) as anyhow::Result<()>
+    };
+    let scheduler = workers::run_workers();
 
     println!("Server running at {}", ADDR);
-    futures::try_join!(server)?;
+    futures::try_join!(server, scheduler)?;
     Ok(())
 }
 

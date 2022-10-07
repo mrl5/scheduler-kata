@@ -7,3 +7,4 @@ edition = "2021"
 svix-ksuid = "^0.6.0"
 time = "^0.3.9"
 thiserror = "^1.0.37"
+serde = { version = "^1.0.145",  features = ["derive"] }

@@ -691,11 +691,13 @@ dependencies = [
  "futures",
  "hyper",
  "serde",
+ "svix-ksuid",
  "tokio",
  "tower",
  "tower-http",
  "tracing",
  "tracing-subscriber",
+ "workers",
 ]
 
 [[package]]
@@ -785,6 +787,7 @@ checksum = "20518fe4a4c9acf048008599e464deb21beeae3d3578418951a189c235a7a9a8"
 name = "tasks"
 version = "0.1.0"
 dependencies = [
+ "serde",
  "svix-ksuid",
  "thiserror",
  "time",
@@ -825,8 +828,10 @@ version = "0.3.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d634a985c4d4238ec39cacaed2e7ae552fbd3c476b552c1deac3021b7d7eaf0c"
 dependencies = [
+ "itoa",
  "libc",
  "num_threads",
+ "serde",
 ]
 
 [[package]]
@@ -1102,6 +1107,9 @@ name = "workers"
 version = "0.1.0"
 dependencies = [
  "anyhow",
+ "axum",
+ "lazy_static",
+ "serde",
  "tasks",
  "time",
  "tokio",
