@@ -9,7 +9,7 @@ curl -i 0.0.0.0:3000/health
 ```console
 make e2e
 ```
-* [ ] HTTP POST /task
+* [x] HTTP POST /task
 * [ ] HTTP GET /tasks
 * [ ] HTTP GET /task/:id
 * [ ] HTTP DELETE /task/:id

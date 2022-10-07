@@ -9,3 +9,9 @@ export async function healthCheck() {
     const url = new URL(`${addr}/health`);
     return client.get(url.toString());
 }
+
+export async function createTask(taskType, startAfterDateTime) {
+    const url = new URL(`${addr}/task/create`);
+    const body = { task_type: taskType, start_after: startAfterDateTime };
+    return client.post(url, body);
+}
