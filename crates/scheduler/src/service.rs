@@ -1,3 +1,4 @@
+use crate::task::{Task, TaskType};
 use axum::http::StatusCode;
 use axum::{routing::post, Json, Router};
 use lazy_static::lazy_static;
@@ -5,7 +6,6 @@ use serde::{Deserialize, Serialize};
 use std::collections::VecDeque;
 use std::thread::sleep;
 use std::time::Duration;
-use crate::task::{Task, TaskType};
 use time::OffsetDateTime;
 use tokio::spawn;
 use tokio::sync::broadcast::{self, Receiver, Sender};
@@ -64,7 +64,7 @@ pub async fn run_scheduler() -> anyhow::Result<()> {
     let tx = &TASK_EVENT_CHANNEL.0.clone();
     let mut task_event_rx = tx.subscribe();
     let (worker_tx, mut worker_rx) = mpsc::unbounded_channel::<Task>();
-    let mut pending_queue = get_tasks();
+    let mut pending_queue = VecDeque::<Task>::new();
     let mut processed_buffer = Vec::<Task>::new(); // todo: remove
 
     spawn(async move {
@@ -115,18 +115,4 @@ fn some_computation(mut task: Task, tx: UnboundedSender<Task>) -> anyhow::Result
     };
 
     Ok(tx.send(task)?)
-}
-
-// todo: delete
-fn get_tasks() -> VecDeque<Task> {
-    let mut tasks = VecDeque::<Task>::new();
-    let t1 = Task::new(TaskType::TypeA, OffsetDateTime::now_utc());
-    let t2 = Task::new(TaskType::TypeB, OffsetDateTime::now_utc());
-    let t3 = Task::new(TaskType::TypeC, OffsetDateTime::now_utc());
-
-    tasks.push_back(t1);
-    tasks.push_back(t2);
-    tasks.push_back(t3);
-
-    tasks
 }

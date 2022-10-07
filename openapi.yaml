@@ -17,6 +17,8 @@
           default: ""
   tags: 
     - 
+      name: "task"
+    - 
       name: "health"
   components: 
     schemas: 
@@ -32,6 +34,48 @@
         type: "apiKey"
         in: "header"
   paths: 
+    /task/create: 
+      post: 
+        security: []
+        tags: 
+          - "task"
+        summary: "task"
+        parameters: []
+        requestBody: 
+          required: true
+          content: 
+            application/json: 
+              schema: 
+                type: "object"
+                properties: 
+                  task_type: 
+                    type: "string"
+                  start_after: 
+                    type: "string"
+              example: 
+                task_type: "TypeA"
+                start_after: "2022-10-07T20:04:17.916Z"
+        responses: 
+          202: 
+            description: "Accepted"
+            content: 
+              application/json: 
+                schema: 
+                  type: "object"
+                  properties: 
+                    task_id: 
+                      type: "string"
+                    msg: 
+                      type: "string"
+                example: 
+                  task_id: "2Foz7Zm9U2Pn0SYD1VbXvlYinyc"
+                  msg: "Your task is queued"
+          default: 
+            description: "Unexpected error"
+            content: 
+              application/json: 
+                example: 
+                  message: "Sorry unable to perform operation."
     /health: 
       get: 
         security: []
