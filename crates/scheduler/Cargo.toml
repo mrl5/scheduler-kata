@@ -10,8 +10,10 @@ axum = { version = "^0.5.16", features = ["headers"] }
 anyhow = "^1.0.65"
 lazy_static = "^1.4.0"
 serde = { version = "^1.0.145",  features = ["derive"] }
+serde_json = "^1.0.85"
 time = { version = "^0.3.9", features = ["serde", "serde-well-known"] }
 tokio = { version = "^1.21.2", features = ["full", "tracing"] }
 tracing = "0.1.36"
-svix-ksuid = "^0.6.0"
+uuid = { version = "^1.2.0", features = ["v4", "fast-rng", "macro-diagnostics", "serde"] }
 thiserror = "^1.0.37"
+futures = "^0.3.24"
