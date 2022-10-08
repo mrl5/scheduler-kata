@@ -34,6 +34,36 @@
         type: "apiKey"
         in: "header"
   paths: 
+    /task/list: 
+      get: 
+        security: []
+        tags: 
+          - "task"
+        summary: "task"
+        parameters: []
+        responses: 
+          200: 
+            description: "OK"
+            content: 
+              application/json: 
+                schema: 
+                  type: "object"
+                  properties: 
+                    tasks: 
+                      type: "array"
+                      items: 
+                        type: "string"
+                example: 
+                  tasks: 
+                    - "1badb0c3-e00a-455c-8c61-2183a5145482"
+                    - "336d4ba9-82ec-4620-8e7f-beafe5e3c27b"
+                    - "b76ac355-b69a-4f9f-bf52-e3d6c9f9aa23"
+          default: 
+            description: "Unexpected error"
+            content: 
+              application/json: 
+                example: 
+                  message: "Sorry unable to perform operation."
     /task/create: 
       post: 
         security: []
