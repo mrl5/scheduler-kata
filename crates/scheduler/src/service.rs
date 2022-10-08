@@ -73,6 +73,7 @@ async fn create_task(Json(body): Json<NewTaskReq>) -> (StatusCode, Json<NewTaskR
             }),
         ),
         Err(e) => {
+            // todo: we probably want to remove persisted task here
             tracing::error!("{}", e);
             (
                 StatusCode::SERVICE_UNAVAILABLE,

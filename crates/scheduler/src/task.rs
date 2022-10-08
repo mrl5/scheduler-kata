@@ -57,7 +57,7 @@ pub enum TaskError {
     TaskReRun,
     #[error("Can't change to status")]
     TaskFlow, // note: I had issues passing enum here as a parameter
-    #[error("Task persist error")]
+    #[error("Task persist error")] // todo: inject task_id here
     TaskPersist,
 }
 
