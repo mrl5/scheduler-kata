@@ -14,8 +14,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 Polly.register(NodeHttpAdapter);
 Polly.register(FSPersister);
 
-const oneMinute = 60 * 1000;
-
 describe('index.js', function () {
     /* eslint-disable mocha/no-setup-in-describe */
     setupPolly({
@@ -39,7 +37,7 @@ describe('index.js', function () {
         [
             ['TypeA', new Date()],
             ['TypeB', new Date()],
-            ['TypeC', new Date(new Date().getTime() + oneMinute)],
+            ['TypeC', new Date(new Date().getTime() + 15 * 1000)],
         ].forEach((testCase) => {
             it(`it should create new task - ${testCase[0]}`, async function () {
                 const [type, datetime] = testCase;

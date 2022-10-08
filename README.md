@@ -9,8 +9,8 @@ curl -i 0.0.0.0:3000/health
 ```console
 make e2e
 ```
-* [x] HTTP POST /task
-* [ ] HTTP GET /tasks
+* [x] HTTP POST /task/create
+* [x] HTTP GET /task/list
 * [ ] HTTP GET /task/:id
 * [ ] HTTP DELETE /task/:id
 ![almost ready](https://pbs.twimg.com/media/FYwPdWEWYAQUUlE?format=jpg&name=medium)
