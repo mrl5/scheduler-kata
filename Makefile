@@ -21,7 +21,12 @@ test:
 	cargo test
 .PHONY: test
 
-e2e:
+setup-e2e-env:
+	cd scripts
+	make install
+.PHONY: setup-e2e-env
+
+e2e: setup-e2e-env
 	cd scripts
 	make test
 .PHONY: e2e
