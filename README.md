@@ -15,3 +15,7 @@ Expose an API that can:
 
 * practice Rust + REST API + OAS
 * practice PostgreSQL
+
+## HOWTO dev
+
+Check [CONTRIBUTING.md](./CONTRIBUTING.md)
