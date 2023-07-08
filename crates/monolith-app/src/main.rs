@@ -1,12 +1,22 @@
-use axum::{response::Json, routing::get, Router, Server};
+use crate::docs::serve_oas;
+use aide::axum::routing::get_with;
+use aide::axum::ApiRouter;
+use aide::openapi::{self, OpenApi};
+use aide::transform::TransformOperation;
+use axum::{response::Json, routing::get, Extension, Router, Server};
 use hyper::Response;
+use schemars::JsonSchema;
 use serde::Serialize;
 use std::net::SocketAddr;
+use std::sync::Arc;
 use tower::ServiceBuilder;
 use tower_http::trace::OnResponse;
 use tower_http::trace::TraceLayer;
 use tracing::Level;
 use tracing_subscriber::FmtSubscriber;
+
+pub mod docs;
+pub mod error;
 
 const DEFAULT_PORT: &str = "8000";
 
@@ -21,7 +31,11 @@ async fn main() -> anyhow::Result<()> {
     let port = std::env::var("API_PORT").unwrap_or_else(|_| DEFAULT_PORT.to_owned());
     let server_f = async {
         let address = SocketAddr::from(([0, 0, 0, 0], port.parse()?));
-        let router = get_router();
+        let mut api = init_openapi();
+        let router = get_router()
+            .route("/openapi.json", get(serve_oas))
+            .finish_api(&mut api)
+            .layer(Extension(Arc::new(api)));
         run_server(address, router).await?;
         Ok(()) as anyhow::Result<()>
     };
@@ -29,12 +43,33 @@ async fn main() -> anyhow::Result<()> {
     Ok(())
 }
 
-#[derive(Debug, Serialize)]
+fn init_openapi() -> OpenApi {
+    aide::gen::on_error(|error| {
+        tracing::error!("Aide generation error: {error}");
+    });
+    aide::gen::extract_schemas(true);
+    aide::gen::infer_responses(true);
+    aide::gen::inferred_empty_response_status(204);
+
+    aide::gen::in_context(|ctx| ctx.schema = schemars::gen::SchemaSettings::openapi3().into());
+
+    OpenApi {
+        info: openapi::Info {
+            title: "Scheduler API".to_owned(),
+            version: "0.1.0".to_owned(),
+            description: Some("Scheduler Kata".to_string()),
+            ..Default::default()
+        },
+        ..Default::default()
+    }
+}
+
+#[derive(Debug, Serialize, JsonSchema)]
 pub struct Health {
     status: HealthStatus,
 }
 
-#[derive(Eq, Debug, Hash, PartialEq, Serialize)]
+#[derive(Eq, Debug, Hash, PartialEq, Serialize, JsonSchema)]
 pub enum HealthStatus {
     Healthy,
 }
@@ -47,8 +82,12 @@ pub async fn run_healthcheck() -> Json<Health> {
     Json(check)
 }
 
-pub fn get_router() -> Router {
-    Router::new().route("/health", get(run_healthcheck))
+pub fn run_healthcheck_docs(op: TransformOperation) -> TransformOperation {
+    op.description("Get health status")
+}
+
+pub fn get_router() -> ApiRouter {
+    ApiRouter::new().api_route("/health", get_with(run_healthcheck, run_healthcheck_docs))
 }
 
 pub async fn run_server(address: SocketAddr, router: Router) -> anyhow::Result<()> {
