@@ -1,0 +1,36 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        WITH deleted_task as (\n            UPDATE task\n            SET inactive_since = now(), state = $1\n            FROM (\n                SELECT id as task_id FROM task_state\n                WHERE id = $2::uuid\n                    AND state != ANY($3)\n                    AND inactive_since IS NULL\n            ) as t\n            WHERE id = t.task_id\n            RETURNING id, state, inactive_since\n        ) SELECT id, state, inactive_since FROM (\n        SELECT id, state, inactive_since FROM deleted_task\n        UNION ALL\n        SELECT id, state, inactive_since FROM task\n        WHERE id = $2::uuid AND state = $1\n        ) t\n        ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "state",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 2,
+        "name": "inactive_since",
+        "type_info": "Timestamptz"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Text",
+        "Uuid",
+        "TextArray"
+      ]
+    },
+    "nullable": [
+      null,
+      null,
+      null
+    ]
+  },
+  "hash": "3e602fded2f30da594df19801827cbdf7bfbc6374145fd4b2b7a0dafb29dbd04"
+}

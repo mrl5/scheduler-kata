@@ -216,6 +216,79 @@
             }
           }
         }
+      },
+      "delete": {
+        "description": "Show task details",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "style": "form"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "A default error response for most API errors.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "A default error response for most API errors.",
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "description": "An error message.",
+                      "type": "string"
+                    },
+                    "error_details": {
+                      "description": "Optional Additional error details."
+                    }
+                  }
+                },
+                "example": {
+                  "error": "some error happened"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Task"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Task is processed and can't be deleted anymore",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppError"
+                }
+              }
+            }
+          }
+        }
       }
     }
   },

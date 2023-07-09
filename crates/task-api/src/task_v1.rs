@@ -97,3 +97,77 @@ pub async fn show_task(Extension(db): Extension<DB>, Query(id): Query<Id>) -> im
     let message = "Internal Server Error";
     (StatusCode::INTERNAL_SERVER_ERROR, AppError::new(message)).into_response()
 }
+
+pub fn delete_task_docs(op: TransformOperation) -> TransformOperation {
+    op.description("Show task details")
+        .response::<200, Json<model::Task>>()
+        .response_with::<403, Json<AppError>, _>(|res| {
+            res.description("Task is processed and can't be deleted anymore")
+        })
+        .response::<404, Json<AppError>>()
+}
+pub async fn delete_task(
+    Extension(db): Extension<DB>,
+    Query(id): Query<Id>,
+) -> impl IntoApiResponse {
+    let forbidden_states = vec![model::TaskState::Processing.to_string()];
+    let task_id = id.id;
+    let task = sqlx::query_as!(
+        model::TaskSnapshot,
+        r#"
+        WITH deleted_task as (
+            UPDATE task
+            SET inactive_since = now(), state = $1
+            FROM (
+                SELECT id as task_id FROM task_state
+                WHERE id = $2::uuid
+                    AND state != ANY($3)
+                    AND inactive_since IS NULL
+            ) as t
+            WHERE id = t.task_id
+            RETURNING id, state, inactive_since
+        ) SELECT id, state, inactive_since FROM (
+        SELECT id, state, inactive_since FROM deleted_task
+        UNION ALL
+        SELECT id, state, inactive_since FROM task
+        WHERE id = $2::uuid AND state = $1
+        ) t
+        "#,
+        model::TaskState::Deleted.to_string(),
+        task_id,
+        &forbidden_states,
+    )
+    .fetch_optional(&db)
+    .await;
+
+    if let Ok(tsk) = task {
+        if let Some(t) = tsk {
+            return Json(t).into_response();
+        }
+        let task = sqlx::query!(
+            r#"
+            SELECT 1 as t FROM task WHERE id = $1::uuid
+            "#,
+            task_id,
+        )
+        .fetch_optional(&db)
+        .await;
+
+        if let Ok(tsk) = task {
+            if tsk.is_none() {
+                return (StatusCode::NOT_FOUND, Json(task_id)).into_response();
+            }
+            return (
+                StatusCode::FORBIDDEN,
+                Json(format!("{} can't be deleted anymore", task_id)),
+            )
+                .into_response();
+        }
+        tracing::error!("{:?}", task);
+        let message = "Internal Server Error";
+        return (StatusCode::INTERNAL_SERVER_ERROR, AppError::new(message)).into_response();
+    }
+    tracing::error!("{:?}", task);
+    let message = "Internal Server Error";
+    (StatusCode::INTERNAL_SERVER_ERROR, AppError::new(message)).into_response()
+}

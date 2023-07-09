@@ -13,6 +13,19 @@ pub enum TaskType {
     TypeC,
 }
 
+#[derive(Serialize, Deserialize, Debug, Display)]
+#[strum(serialize_all = "snake_case")]
+#[serde(rename_all = "snake_case")]
+pub enum TaskState {
+    Created,
+    Pending,
+    Deferred,
+    Deleted,
+    Processing,
+    Failed,
+    Done,
+}
+
 #[derive(Debug, Serialize, JsonSchema)]
 pub struct TaskId {
     pub id: Uuid,
@@ -25,5 +38,12 @@ pub struct Task {
     pub state: Option<String>,
     pub created_at: DateTime<Utc>,
     pub not_before: Option<DateTime<Utc>>,
+    pub inactive_since: Option<DateTime<Utc>>,
+}
+
+#[derive(Debug, Serialize, JsonSchema)]
+pub struct TaskSnapshot {
+    pub id: Option<Uuid>,
+    pub state: Option<String>,
     pub inactive_since: Option<DateTime<Utc>>,
 }
