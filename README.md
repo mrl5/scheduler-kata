@@ -23,13 +23,18 @@ Check [CONTRIBUTING.md](./CONTRIBUTING.md)
 ## Build
 
 ```console
-docker build -t scheduler-app .
+docker compose build
 ```
 
 ## Run
 
+:warning:
+Before first run make sure to bootstrap database. For more info check
+[CONTRIBUTING.md](./CONTRIBUTING.md)
+:warning:
+
 ```console
-docker run --rm -p 8000:8000 scheduler-app:latest
+docker compose up
 ```
 
 http://localhost:8000/docs
