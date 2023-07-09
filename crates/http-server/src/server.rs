@@ -1,4 +1,4 @@
-use crate::tracing::MyOnResponse;
+use crate::tracing::{MyMakeSpan, MyOnResponse};
 use axum::{Router, Server};
 use std::net::SocketAddr;
 use tower::ServiceBuilder;
@@ -12,7 +12,8 @@ pub async fn run_server(
     let middleware_stack = ServiceBuilder::new().layer(
         TraceLayer::new_for_http()
             .on_request(())
-            .on_response(MyOnResponse {}),
+            .on_response(MyOnResponse {})
+            .make_span_with(MyMakeSpan {}),
     );
 
     let app = router.layer(middleware_stack);
