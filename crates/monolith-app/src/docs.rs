@@ -1,7 +1,9 @@
 use crate::error::AppError;
-use aide::axum::IntoApiResponse;
+use aide::axum::routing::get_with;
+use aide::axum::{ApiRouter, IntoApiResponse};
 use aide::openapi::OpenApi;
 use aide::operation::OperationIo;
+use aide::redoc::Redoc;
 use axum::response::IntoResponse;
 use axum::Extension;
 use axum_jsonschema::JsonSchemaRejection;
@@ -9,6 +11,23 @@ use axum_macros::FromRequest;
 use serde::Serialize;
 use serde_json::json;
 use std::sync::Arc;
+
+pub fn get_router(oas_path: &str) -> ApiRouter {
+    aide::gen::infer_responses(true);
+
+    let router = ApiRouter::new().api_route(
+        "/",
+        get_with(
+            Redoc::new(oas_path)
+                .with_title("Scheduler API")
+                .axum_handler(),
+            |op| op.description("This documentation page."),
+        ),
+    );
+
+    aide::gen::infer_responses(false);
+    router
+}
 
 pub async fn serve_oas(Extension(api): Extension<Arc<OpenApi>>) -> impl IntoApiResponse {
     Json(api).into_response()

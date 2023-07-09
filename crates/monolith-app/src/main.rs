@@ -1,4 +1,3 @@
-use crate::docs::serve_oas;
 use aide::axum::routing::get_with;
 use aide::axum::ApiRouter;
 use aide::openapi::{self, OpenApi};
@@ -19,6 +18,8 @@ pub mod docs;
 pub mod error;
 
 const DEFAULT_PORT: &str = "8000";
+const DOCS_PATH: &str = "/docs";
+const OAS_PATH: &str = "/openapi.json";
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
@@ -33,7 +34,8 @@ async fn main() -> anyhow::Result<()> {
         let address = SocketAddr::from(([0, 0, 0, 0], port.parse()?));
         let mut api = init_openapi();
         let router = get_router()
-            .route("/openapi.json", get(serve_oas))
+            .nest(DOCS_PATH, docs::get_router(OAS_PATH))
+            .route(OAS_PATH, get(docs::serve_oas))
             .finish_api(&mut api)
             .layer(Extension(Arc::new(api)));
         run_server(address, router).await?;
@@ -108,6 +110,7 @@ pub async fn run_server(address: SocketAddr, router: Router) -> anyhow::Result<(
     };
 
     println!("Server running at http://{}", address);
+    println!("Docs at http://{}{}", address, DOCS_PATH);
     server.await?;
     Ok(())
 }
