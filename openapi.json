@@ -1,0 +1,128 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Scheduler API",
+    "description": "Scheduler Kata",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "description": "Health status",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Health"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/docs/": {
+      "get": {
+        "description": "This documentation page",
+        "responses": {
+          "200": {
+            "description": "HTML content",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/task/create": {
+      "post": {
+        "description": "Create new task",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTaskReq"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaskId"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CreateTaskReq": {
+        "type": "object",
+        "required": [
+          "task_type"
+        ],
+        "properties": {
+          "not_before": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "task_type": {
+            "$ref": "#/components/schemas/TaskType"
+          }
+        }
+      },
+      "Health": {
+        "type": "object",
+        "required": [
+          "status"
+        ],
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/HealthStatus"
+          }
+        }
+      },
+      "HealthStatus": {
+        "type": "string",
+        "enum": [
+          "Healthy"
+        ]
+      },
+      "TaskId": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      },
+      "TaskType": {
+        "type": "string",
+        "enum": [
+          "type_a",
+          "type_b",
+          "type_c"
+        ]
+      }
+    }
+  }
+}
