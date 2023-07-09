@@ -40,7 +40,7 @@
         }
       }
     },
-    "/api/v1/task/create": {
+    "/api/v1/task/": {
       "post": {
         "description": "Create new task",
         "requestBody": {

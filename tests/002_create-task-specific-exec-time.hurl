@@ -1,4 +1,4 @@
-POST http://localhost:8000/api/v1/task/create
+POST http://localhost:8000/api/v1/task
 {
   "task_type": "type_b",
   "not_before": "{{tomorrow}}"
