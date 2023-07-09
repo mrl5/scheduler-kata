@@ -19,3 +19,17 @@ Expose an API that can:
 ## HOWTO dev
 
 Check [CONTRIBUTING.md](./CONTRIBUTING.md)
+
+## Build
+
+```console
+docker build -t scheduler-app .
+```
+
+## Run
+
+```console
+docker run --rm -p 8000:8000 scheduler-app:latest
+```
+
+http://localhost:8000/docs
