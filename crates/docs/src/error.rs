@@ -28,11 +28,6 @@ impl AppError {
         }
     }
 
-    pub fn with_status(mut self, status: StatusCode) -> Self {
-        self.status = status;
-        self
-    }
-
     pub fn with_details(mut self, details: Value) -> Self {
         self.error_details = Some(details);
         self

@@ -1,6 +1,8 @@
 [workspace]
 members = [
-    "crates/app-monolith"
+    "crates/app-monolith",
+    "crates/docs",
+    "crates/http-server"
 ]
 
 [workspace.package]
@@ -8,6 +10,9 @@ version = "0.0.0"
 edition = "2021"
 
 [workspace.dependencies]
+docs = { path = "./crates/docs" }
+http-server = { path = "./crates/http-server" }
+
 aide = { version = "^0", features = ["axum", "redoc", "macros", "axum-headers"] }
 anyhow = "^1"
 axum = { version = "^0", features = ["headers"] }

@@ -1,0 +1,15 @@
+[package]
+name = "docs"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+aide.workspace = true
+axum.workspace = true
+axum-jsonschema.workspace = true
+axum-macros.workspace = true
+schemars.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tracing.workspace = true
+uuid.workspace = true
