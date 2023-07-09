@@ -30,7 +30,7 @@ HTTP 200
 
 [Asserts]
 jsonpath "$.id" == {{new_c_task_id}}
-jsonpath "$.state" == null # todo: "created"
+jsonpath "$.state" == "created"
 
 DELETE http://localhost:8000/api/v1/task?id={{new_c_task_id}}
 

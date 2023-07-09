@@ -13,7 +13,7 @@ pub enum TaskType {
     TypeC,
 }
 
-#[derive(Serialize, Deserialize, Debug, Display)]
+#[derive(Serialize, Deserialize, Debug, Display, JsonSchema)]
 #[strum(serialize_all = "snake_case")]
 #[serde(rename_all = "snake_case")]
 pub enum TaskState {
@@ -36,6 +36,26 @@ pub struct Task {
     pub id: Uuid,
     pub typ: String,
     pub state: Option<String>,
+    pub created_at: DateTime<Utc>,
+    pub not_before: Option<DateTime<Utc>>,
+    pub inactive_since: Option<DateTime<Utc>>,
+}
+
+#[derive(sqlx::FromRow, Serialize, Deserialize, Debug, JsonSchema)]
+pub struct TaskView {
+    pub id: Option<Uuid>,
+    pub typ: Option<String>,
+    pub state: Option<String>,
+    pub created_at: Option<DateTime<Utc>>,
+    pub not_before: Option<DateTime<Utc>>,
+    pub inactive_since: Option<DateTime<Utc>>,
+}
+
+#[derive(sqlx::FromRow, Serialize, Deserialize, Debug, JsonSchema)]
+pub struct TaskDetails {
+    pub id: Uuid,
+    pub typ: String,
+    pub state: TaskState,
     pub created_at: DateTime<Utc>,
     pub not_before: Option<DateTime<Utc>>,
     pub inactive_since: Option<DateTime<Utc>>,

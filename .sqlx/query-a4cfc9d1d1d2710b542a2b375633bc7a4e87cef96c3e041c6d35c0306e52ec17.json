@@ -1,6 +1,6 @@
 {
   "db_name": "PostgreSQL",
-  "query": "\n        SELECT\n            id,\n            typ,\n            state,\n            created_at,\n            not_before,\n            inactive_since\n        FROM task\n        WHERE id = $1::uuid\n        ",
+  "query": "\n        SELECT\n            id,\n            typ,\n            state,\n            created_at,\n            not_before,\n            inactive_since\n        FROM task_state\n        WHERE id = $1::uuid\n        ",
   "describe": {
     "columns": [
       {
@@ -40,13 +40,13 @@
       ]
     },
     "nullable": [
-      false,
-      false,
       true,
-      false,
+      true,
+      true,
+      true,
       true,
       true
     ]
   },
-  "hash": "11599be1dadbd79e03b5910663a64211c9a5900d3b3360e207cedab76cb073e5"
+  "hash": "a4cfc9d1d1d2710b542a2b375633bc7a4e87cef96c3e041c6d35c0306e52ec17"
 }

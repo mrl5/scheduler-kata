@@ -139,7 +139,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Task"
+                  "$ref": "#/components/schemas/TaskDetails"
                 }
               }
             }
@@ -391,6 +391,41 @@
           }
         }
       },
+      "TaskDetails": {
+        "type": "object",
+        "required": [
+          "created_at",
+          "id",
+          "state",
+          "typ"
+        ],
+        "properties": {
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "inactive_since": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "not_before": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "state": {
+            "$ref": "#/components/schemas/TaskState"
+          },
+          "typ": {
+            "type": "string"
+          }
+        }
+      },
       "TaskId": {
         "type": "object",
         "required": [
@@ -402,6 +437,18 @@
             "format": "uuid"
           }
         }
+      },
+      "TaskState": {
+        "type": "string",
+        "enum": [
+          "created",
+          "pending",
+          "deferred",
+          "deleted",
+          "processing",
+          "failed",
+          "done"
+        ]
       },
       "TaskType": {
         "type": "string",

@@ -59,7 +59,7 @@ pub async fn create_task(
 
 pub fn show_task_docs(op: TransformOperation) -> TransformOperation {
     op.description("Show task details")
-        .response::<200, Json<model::Task>>()
+        .response::<200, Json<model::TaskDetails>>()
         .response::<404, Json<AppError>>()
 }
 #[derive(Deserialize, JsonSchema)]
@@ -69,7 +69,7 @@ pub struct Id {
 pub async fn show_task(Extension(db): Extension<DB>, Query(id): Query<Id>) -> impl IntoApiResponse {
     let task_id = id.id;
     let task = sqlx::query_as!(
-        model::Task,
+        model::TaskView,
         r#"
         SELECT
             id,
@@ -78,7 +78,7 @@ pub async fn show_task(Extension(db): Extension<DB>, Query(id): Query<Id>) -> im
             created_at,
             not_before,
             inactive_since
-        FROM task
+        FROM task_state
         WHERE id = $1::uuid
         "#,
         task_id,
