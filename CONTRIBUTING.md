@@ -40,21 +40,17 @@ Each time you provide new `TENANT` (e.g. in `.env`) you will need to run:
 just db-add-new-tenant db-migrate
 ```
 
-For more info inspect the content of `.env` files.  Then compare it with
-`.env.local`. Notice the value of `TENANT` variable
+For more info inspect the content of `.env` files. Notice the value of `TENANT`
+variable.
 
 
 ## HOWTO local dev
 
-```console
-find . -type l -iname ".env" | xargs rm -v && ln -s -v .env.local .env
-```
-
 Unit tests
 ```console
 just db-only
-just test-unit
-just local-api
+just --dotenv-filename .env.local test-unit
+just --dotenv-filename .env.local local-api
 just test-api
 ```
 

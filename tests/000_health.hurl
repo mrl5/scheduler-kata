@@ -1,5 +1,5 @@
 # basic health check
-GET http://localhost:8000/health
+GET http://0.0.0.0:8000/health
 
 HTTP 200
 
