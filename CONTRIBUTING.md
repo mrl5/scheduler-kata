@@ -46,6 +46,10 @@ For more info inspect the content of `.env` files.  Then compare it with
 
 ## HOWTO local dev
 
+```console
+find . -type l -iname ".env" | xargs rm -v && ln -s -v .env.local .env
+```
+
 Unit tests
 ```console
 just db-only

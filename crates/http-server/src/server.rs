@@ -1,5 +1,6 @@
 use crate::tracing::{MyMakeSpan, MyOnResponse};
-use axum::{Router, Server};
+use axum::{Extension, Router, Server};
+use common::db::DB;
 use std::net::SocketAddr;
 use tower::ServiceBuilder;
 use tower_http::trace::TraceLayer;
@@ -8,13 +9,16 @@ pub async fn run_server(
     address: SocketAddr,
     router: Router,
     docs_path: Option<&str>,
+    db: DB,
 ) -> anyhow::Result<()> {
-    let middleware_stack = ServiceBuilder::new().layer(
-        TraceLayer::new_for_http()
-            .on_request(())
-            .on_response(MyOnResponse {})
-            .make_span_with(MyMakeSpan {}),
-    );
+    let middleware_stack = ServiceBuilder::new()
+        .layer(
+            TraceLayer::new_for_http()
+                .on_request(())
+                .on_response(MyOnResponse {})
+                .make_span_with(MyMakeSpan {}),
+        )
+        .layer(Extension(db.clone()));
 
     let app = router.layer(middleware_stack);
 

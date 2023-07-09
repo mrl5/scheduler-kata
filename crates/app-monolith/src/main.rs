@@ -1,4 +1,5 @@
 use axum::{routing::get, Extension};
+use common::db;
 use docs::{openapi, redoc};
 use http_server::{router, server};
 use std::net::SocketAddr;
@@ -21,6 +22,9 @@ async fn main() -> anyhow::Result<()> {
 
     tracing::debug!("tracing initiated");
     let port = std::env::var("API_PORT").unwrap_or_else(|_| DEFAULT_PORT.to_owned());
+
+    let db = db::connect(Some(env!("CARGO_PKG_NAME"))).await?;
+
     let server_f = async {
         let address = SocketAddr::from(([0, 0, 0, 0], port.parse()?));
         let mut api = openapi::init_openapi();
@@ -30,7 +34,7 @@ async fn main() -> anyhow::Result<()> {
             .nest(format!("{API_V1_PATH}/task").as_str(), task_v1_router())
             .finish_api(&mut api)
             .layer(Extension(Arc::new(api)));
-        server::run_server(address, router, Some(DOCS_PATH)).await?;
+        server::run_server(address, router, Some(DOCS_PATH), db.clone()).await?;
         Ok(()) as anyhow::Result<()>
     };
     futures::try_join!(server_f)?;

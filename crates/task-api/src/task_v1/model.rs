@@ -12,7 +12,7 @@ pub enum TaskType {
     TypeC,
 }
 
-#[derive(Serialize, JsonSchema)]
+#[derive(Debug, Serialize, JsonSchema)]
 pub struct TaskId {
     pub id: Uuid,
 }

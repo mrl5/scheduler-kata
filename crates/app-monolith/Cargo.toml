@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+common.workspace = true
 docs.workspace = true
 http-server.workspace = true
 task-api.workspace = true
@@ -11,6 +12,7 @@ task-api.workspace = true
 anyhow.workspace = true
 axum.workspace = true
 futures.workspace = true
+sqlx.workspace = true
 tokio.workspace = true
 tracing.workspace = true
 tracing-subscriber.workspace = true

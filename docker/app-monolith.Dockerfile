@@ -2,7 +2,7 @@ FROM rust:1.70 AS build-env
 ENV SQLX_OFFLINE=true
 WORKDIR /app
 COPY ./Cargo.lock ./Cargo.toml /app/
-COPY ./.sqlx /app/
+COPY ./.sqlx /app/.sqlx
 COPY ./crates /app/crates
 RUN cargo build --release
 

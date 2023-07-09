@@ -4,6 +4,8 @@ version.workspace = true
 edition.workspace = true
 
 [dependencies]
+common.workspace = true
+
 aide.workspace = true
 anyhow.workspace = true
 axum.workspace = true
