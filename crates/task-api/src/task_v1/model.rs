@@ -1,3 +1,4 @@
+use chrono::{DateTime, Utc};
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 use strum::Display;
@@ -15,4 +16,14 @@ pub enum TaskType {
 #[derive(Debug, Serialize, JsonSchema)]
 pub struct TaskId {
     pub id: Uuid,
+}
+
+#[derive(sqlx::FromRow, Serialize, Deserialize, Debug, JsonSchema)]
+pub struct Task {
+    pub id: Uuid,
+    pub typ: String,
+    pub state: Option<String>,
+    pub created_at: DateTime<Utc>,
+    pub not_before: Option<DateTime<Utc>>,
+    pub inactive_since: Option<DateTime<Utc>>,
 }

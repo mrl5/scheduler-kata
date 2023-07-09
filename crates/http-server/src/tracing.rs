@@ -28,7 +28,7 @@ impl<B> MakeSpan<B> for MyMakeSpan {
         tracing::info_span!(
             "request",
             method = %request.method(),
-            uri = %request.uri(),
+            path = %request.uri().path(),
         )
     }
 }

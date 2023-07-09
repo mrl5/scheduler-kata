@@ -10,6 +10,32 @@
       "get": {
         "description": "Health status",
         "responses": {
+          "default": {
+            "description": "A default error response for most API errors.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "A default error response for most API errors.",
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "description": "An error message.",
+                      "type": "string"
+                    },
+                    "error_details": {
+                      "description": "Optional Additional error details."
+                    }
+                  }
+                },
+                "example": {
+                  "error": "some error happened"
+                }
+              }
+            }
+          },
           "200": {
             "description": "",
             "content": {
@@ -27,6 +53,32 @@
       "get": {
         "description": "This documentation page",
         "responses": {
+          "default": {
+            "description": "A default error response for most API errors.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "A default error response for most API errors.",
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "description": "An error message.",
+                      "type": "string"
+                    },
+                    "error_details": {
+                      "description": "Optional Additional error details."
+                    }
+                  }
+                },
+                "example": {
+                  "error": "some error happened"
+                }
+              }
+            }
+          },
           "200": {
             "description": "HTML content",
             "content": {
@@ -41,6 +93,69 @@
       }
     },
     "/api/v1/task/": {
+      "get": {
+        "description": "Show task details",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "style": "form"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "A default error response for most API errors.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "A default error response for most API errors.",
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "description": "An error message.",
+                      "type": "string"
+                    },
+                    "error_details": {
+                      "description": "Optional Additional error details."
+                    }
+                  }
+                },
+                "example": {
+                  "error": "some error happened"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Task"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppError"
+                }
+              }
+            }
+          }
+        }
+      },
       "post": {
         "description": "Create new task",
         "requestBody": {
@@ -54,12 +169,48 @@
           "required": true
         },
         "responses": {
+          "default": {
+            "description": "A default error response for most API errors.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "A default error response for most API errors.",
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "description": "An error message.",
+                      "type": "string"
+                    },
+                    "error_details": {
+                      "description": "Optional Additional error details."
+                    }
+                  }
+                },
+                "example": {
+                  "error": "some error happened"
+                }
+              }
+            }
+          },
           "202": {
             "description": "",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/TaskId"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppError"
                 }
               }
             }
@@ -70,6 +221,23 @@
   },
   "components": {
     "schemas": {
+      "AppError": {
+        "description": "A default error response for most API errors.",
+        "type": "object",
+        "required": [
+          "error"
+        ],
+        "properties": {
+          "error": {
+            "description": "An error message.",
+            "type": "string"
+          },
+          "error_details": {
+            "description": "Optional Additional error details.",
+            "nullable": true
+          }
+        }
+      },
       "CreateTaskReq": {
         "type": "object",
         "required": [
@@ -102,6 +270,53 @@
         "enum": [
           "Healthy"
         ]
+      },
+      "Id": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      },
+      "Task": {
+        "type": "object",
+        "required": [
+          "created_at",
+          "id",
+          "typ"
+        ],
+        "properties": {
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "inactive_since": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "not_before": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "state": {
+            "type": "string",
+            "nullable": true
+          },
+          "typ": {
+            "type": "string"
+          }
+        }
       },
       "TaskId": {
         "type": "object",

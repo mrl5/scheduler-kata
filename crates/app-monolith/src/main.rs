@@ -32,7 +32,7 @@ async fn main() -> anyhow::Result<()> {
             .route(OAS_PATH, get(openapi::serve_oas))
             .nest(DOCS_PATH, redoc::get_router(OAS_PATH))
             .nest(format!("{API_V1_PATH}/task").as_str(), task_v1_router())
-            .finish_api(&mut api)
+            .finish_api_with(&mut api, openapi::api_docs)
             .layer(Extension(Arc::new(api)));
         server::run_server(address, router, Some(DOCS_PATH), db.clone()).await?;
         Ok(()) as anyhow::Result<()>

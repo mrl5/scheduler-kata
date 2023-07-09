@@ -1,6 +1,9 @@
+use crate::error::AppError;
 use crate::extractor::Json;
 use aide::axum::IntoApiResponse;
 use aide::openapi::{self, OpenApi};
+use aide::transform::TransformOpenApi;
+use axum::http::StatusCode;
 use axum::response::IntoResponse;
 use axum::Extension;
 use std::sync::Arc;
@@ -24,6 +27,19 @@ pub fn init_openapi() -> OpenApi {
         },
         ..Default::default()
     }
+}
+
+pub fn api_docs(api: TransformOpenApi) -> TransformOpenApi {
+    api.title("Scheduler API")
+        .description("Scheduler Kata")
+        .default_response_with::<Json<AppError>, _>(|res| {
+            res.example(AppError {
+                error: "some error happened".to_string(),
+                error_details: None,
+                // This is not visible.
+                status: StatusCode::IM_A_TEAPOT,
+            })
+        })
 }
 
 pub async fn serve_oas(Extension(api): Extension<Arc<OpenApi>>) -> impl IntoApiResponse {
