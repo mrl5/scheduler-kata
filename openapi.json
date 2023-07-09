@@ -341,7 +341,8 @@
       "HealthStatus": {
         "type": "string",
         "enum": [
-          "Healthy"
+          "Healthy",
+          "Degraded"
         ]
       },
       "Id": {

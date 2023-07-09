@@ -26,6 +26,7 @@ async fn pool_db(
     app_name: Option<&str>,
 ) -> Result<DB, Error> {
     PgPoolOptions::new()
+        .acquire_timeout(Duration::from_secs(5))
         .max_connections(max_connections)
         .max_lifetime(Duration::from_secs(5 * 60))
         .connect(
