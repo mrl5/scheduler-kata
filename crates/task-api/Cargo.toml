@@ -1,0 +1,17 @@
+[package]
+name = "task-api"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+docs.workspace = true
+
+aide.workspace = true
+axum.workspace = true
+chrono.workspace = true
+schemars.workspace = true
+serde.workspace = true
+strum.workspace = true
+tracing.workspace = true
+ulid.workspace = true
+uuid.workspace = true

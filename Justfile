@@ -1,3 +1,5 @@
+TMRW := `date -u -Iseconds -d"+1days"`
+
 dev-tools:
     cargo install hurl
 
@@ -10,7 +12,7 @@ test-unit:
     cargo test
 
 test-api:
-    hurl --test ./tests/*.hurl
+    hurl --test --variable tomorrow={{TMRW}} ./tests/*.hurl
 
 lint: fmt
     cargo clippy --fix --allow-staged

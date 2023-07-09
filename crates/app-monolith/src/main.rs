@@ -3,12 +3,14 @@ use docs::{openapi, redoc};
 use http_server::{router, server};
 use std::net::SocketAddr;
 use std::sync::Arc;
+use task_api::router::task_v1_router;
 use tracing::Level;
 use tracing_subscriber::FmtSubscriber;
 
 const DEFAULT_PORT: &str = "8000";
 const DOCS_PATH: &str = "/docs";
 const OAS_PATH: &str = "/openapi.json";
+const API_V1_PATH: &str = "/api/v1";
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
@@ -25,6 +27,7 @@ async fn main() -> anyhow::Result<()> {
         let router = router::get_router()
             .route(OAS_PATH, get(openapi::serve_oas))
             .nest(DOCS_PATH, redoc::get_router(OAS_PATH))
+            .nest(format!("{API_V1_PATH}/task").as_str(), task_v1_router())
             .finish_api(&mut api)
             .layer(Extension(Arc::new(api)));
         server::run_server(address, router, Some(DOCS_PATH)).await?;

@@ -6,6 +6,7 @@ edition = "2021"
 [dependencies]
 docs.workspace = true
 http-server.workspace = true
+task-api.workspace = true
 
 anyhow.workspace = true
 axum.workspace = true

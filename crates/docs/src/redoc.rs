@@ -11,7 +11,7 @@ pub fn get_router(oas_path: &str) -> ApiRouter {
             Redoc::new(oas_path)
                 .with_title("Scheduler API")
                 .axum_handler(),
-            |op| op.description("This documentation page."),
+            |op| op.description("This documentation page"),
         ),
     );
 
