@@ -15,6 +15,7 @@ Expose an API that can:
 
 * practice Rust + REST API + OAS
 * practice PostgreSQL
+* practice benchmarking
 
 ## HOWTO dev
 
