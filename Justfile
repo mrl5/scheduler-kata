@@ -23,31 +23,18 @@ local-api:
 test: test-unit test-api
 
 test-unit:
-    cargo test
+    SQLX_OFFLINE=true cargo test
 
 test-api:
     hurl --test --variable tomorrow={{TMRW}} ./tests/*.hurl
 
 lint: fmt
-    cargo clippy --fix --allow-staged
+    SQLX_OFFLINE=true cargo clippy --fix --allow-staged
 
 fmt:
     rustfmt crates/**/src/*.rs
 
-db-load-pgcron:
-    # allow using pg_cron in our db
-    PGPASSWORD=${ADMIN_DB_PASSWORD} psql -h ${SQLX_DB_HOST} -p ${DB_PORT} \
-    -U ${ADMIN_DB_USER} -d ${DB_NAME} \
-        -c "ALTER SYSTEM SET cron.database_name TO '${DB_NAME}';"
-
-    # restart db so that changes are effective
-    ${DOCKER_COMPOSE} restart db
-
 db-bootstrap:
-    PGPASSWORD=${ADMIN_DB_PASSWORD} psql -h ${SQLX_DB_HOST} -p ${DB_PORT} \
-        -U ${ADMIN_DB_USER} -d ${DB_NAME} \
-        -c "CREATE SCHEMA internal AUTHORIZATION ${ADMIN_DB_USER};"
-
     # https://www.crunchydata.com/blog/logging-tips-for-postgres-featuring-your-slow-queries
     PGPASSWORD=${ADMIN_DB_PASSWORD} psql -h ${SQLX_DB_HOST} -p ${DB_PORT} \
         -U ${ADMIN_DB_USER} -d ${DB_NAME} \
@@ -81,12 +68,26 @@ db-bootstrap:
         -U ${ADMIN_DB_USER} -d ${DB_NAME} \
         -c "SELECT pg_reload_conf();"
 
+    # allow using pg_cron in our db
+    PGPASSWORD=${ADMIN_DB_PASSWORD} psql -h ${SQLX_DB_HOST} -p ${DB_PORT} \
+    -U ${ADMIN_DB_USER} -d ${DB_NAME} \
+        -c "ALTER SYSTEM SET cron.database_name TO '${DB_NAME}';"
+
+    # restart db so that changes are effective
+    ${DOCKER_COMPOSE} restart db
+    sleep 5
+
+    # internal schema
+    PGPASSWORD=${ADMIN_DB_PASSWORD} psql -h ${SQLX_DB_HOST} -p ${DB_PORT} \
+        -U ${ADMIN_DB_USER} -d ${DB_NAME} \
+        -c "CREATE SCHEMA internal AUTHORIZATION ${ADMIN_DB_USER};"
+
     cat ./migrations_internal/*.sql \
     | PGPASSWORD=${ADMIN_DB_PASSWORD} psql -h ${SQLX_DB_HOST} -p ${DB_PORT} \
         -U ${ADMIN_DB_USER} -d ${DB_NAME}
 
 db-add-new-tenant:
-    just --dotenv-path .env.sqlx _db-add-new-tenant
+    just --dotenv-filename .env.sqlx _db-add-new-tenant
 
 _db-add-new-tenant:
     # workaround sqlx limitation
@@ -100,7 +101,7 @@ _db-add-new-tenant:
         -c "CALL internal.create_new_tenant('${ADMIN_DB_USER}', '${TENANT}');"
 
 db-migrate:
-    just --dotenv-path .env.sqlx TENANT=${TENANT} _db-migrate
+    just --dotenv-filename .env.sqlx TENANT=${TENANT} _db-migrate
 
 _db-migrate:
     sqlx migrate run -D "${DB_URI}&options=-c search_path=tenant_${TENANT}"
