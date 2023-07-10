@@ -24,7 +24,7 @@ pub struct CreateTaskReq {
 pub async fn create_task(
     Extension(db): Extension<DB>,
     Json(body): Json<CreateTaskReq>,
-) -> impl IntoApiResponse {
+) -> Result<impl IntoApiResponse, StatusCode> {
     let id: Uuid = Ulid::new().into();
 
     let task = sqlx::query_as!(
@@ -47,14 +47,10 @@ pub async fn create_task(
         body.not_before
     )
     .fetch_one(&db)
-    .await;
+    .await
+    .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?;
 
-    if let Ok(t) = task {
-        return (StatusCode::ACCEPTED, Json(t)).into_response();
-    }
-    tracing::error!("{:?}", task);
-    let message = "Internal Server Error";
-    (StatusCode::INTERNAL_SERVER_ERROR, AppError::new(message)).into_response()
+    Ok((StatusCode::ACCEPTED, Json(task)).into_response())
 }
 
 pub fn show_task_docs(op: TransformOperation) -> TransformOperation {
@@ -66,7 +62,10 @@ pub fn show_task_docs(op: TransformOperation) -> TransformOperation {
 pub struct Id {
     id: Uuid,
 }
-pub async fn show_task(Extension(db): Extension<DB>, Query(id): Query<Id>) -> impl IntoApiResponse {
+pub async fn show_task(
+    Extension(db): Extension<DB>,
+    Query(id): Query<Id>,
+) -> Result<impl IntoApiResponse, StatusCode> {
     let task_id = id.id;
     let task = sqlx::query_as!(
         model::TaskView,
@@ -84,18 +83,14 @@ pub async fn show_task(Extension(db): Extension<DB>, Query(id): Query<Id>) -> im
         task_id,
     )
     .fetch_optional(&db)
-    .await;
+    .await
+    .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?;
 
-    if let Ok(tsk) = task {
-        if let Some(t) = tsk {
-            return Json(t).into_response();
-        } else {
-            return (StatusCode::NOT_FOUND, Json(task_id)).into_response();
-        }
+    if let Some(t) = task {
+        Ok(Json(t).into_response())
+    } else {
+        Ok((StatusCode::NOT_FOUND, Json(task_id)).into_response())
     }
-    tracing::error!("{:?}", task);
-    let message = "Internal Server Error";
-    (StatusCode::INTERNAL_SERVER_ERROR, AppError::new(message)).into_response()
 }
 
 pub fn delete_task_docs(op: TransformOperation) -> TransformOperation {
@@ -109,7 +104,7 @@ pub fn delete_task_docs(op: TransformOperation) -> TransformOperation {
 pub async fn delete_task(
     Extension(db): Extension<DB>,
     Query(id): Query<Id>,
-) -> impl IntoApiResponse {
+) -> Result<impl IntoApiResponse, StatusCode> {
     let forbidden_states = vec![model::TaskState::Processing.to_string()];
     let task_id = id.id;
     let task = sqlx::query_as!(
@@ -138,36 +133,28 @@ pub async fn delete_task(
         &forbidden_states,
     )
     .fetch_optional(&db)
-    .await;
+    .await
+    .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?;
 
-    if let Ok(tsk) = task {
-        if let Some(t) = tsk {
-            return Json(t).into_response();
-        }
-        let task = sqlx::query!(
-            r#"
-            SELECT 1 as t FROM task WHERE id = $1::uuid
-            "#,
-            task_id,
-        )
-        .fetch_optional(&db)
-        .await;
-
-        if let Ok(tsk) = task {
-            if tsk.is_none() {
-                return (StatusCode::NOT_FOUND, Json(task_id)).into_response();
-            }
-            return (
-                StatusCode::FORBIDDEN,
-                Json(format!("{} can't be deleted anymore", task_id)),
-            )
-                .into_response();
-        }
-        tracing::error!("{:?}", task);
-        let message = "Internal Server Error";
-        return (StatusCode::INTERNAL_SERVER_ERROR, AppError::new(message)).into_response();
+    if let Some(t) = task {
+        return Ok(Json(t).into_response());
     }
-    tracing::error!("{:?}", task);
-    let message = "Internal Server Error";
-    (StatusCode::INTERNAL_SERVER_ERROR, AppError::new(message)).into_response()
+    let task = sqlx::query!(
+        r#"
+        SELECT 1 as t FROM task WHERE id = $1::uuid
+        "#,
+        task_id,
+    )
+    .fetch_optional(&db)
+    .await
+    .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?;
+
+    match task {
+        Some(_) => Ok((
+            StatusCode::FORBIDDEN,
+            Json(format!("{} can't be deleted anymore", task_id)),
+        )
+            .into_response()),
+        None => Ok((StatusCode::NOT_FOUND, Json(task_id)).into_response()),
+    }
 }
