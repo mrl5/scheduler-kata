@@ -2188,6 +2188,7 @@ name = "task-api"
 version = "0.0.0"
 dependencies = [
  "aide",
+ "anyhow",
  "axum",
  "chrono",
  "common",
