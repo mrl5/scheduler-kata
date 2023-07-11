@@ -1,5 +1,12 @@
 # scheduler kata
 
+## Motivation
+
+* practice Rust + REST API + OAS
+* practice PostgreSQL
+* practice benchmarking
+
+
 ## Requirements
 
 Expose an API that can:
@@ -11,15 +18,11 @@ Expose an API that can:
 * Process each task only once and only at/after their specified execution time.
 * Support running multiple instances of your code in parallel.
 
-## Personal agenda
-
-* practice Rust + REST API + OAS
-* practice PostgreSQL
-* practice benchmarking
 
 ## HOWTO dev
 
 Check [CONTRIBUTING.md](./CONTRIBUTING.md)
+
 
 ## Build
 
@@ -27,15 +30,33 @@ Check [CONTRIBUTING.md](./CONTRIBUTING.md)
 docker compose build
 ```
 
+
 ## Run
 
 :warning:
-Before first run make sure to bootstrap database. For more info check
-[CONTRIBUTING.md](./CONTRIBUTING.md)
+Before first run make sure to bootstrap database
 :warning:
+
+For more info check [CONTRIBUTING.md](./CONTRIBUTING.md)
 
 ```console
 docker compose up
 ```
 
-http://localhost:8000/docs
+http://0.0.0.0:8000/docs
+
+
+## Iterations log
+
+* [v0](https://github.com/mrl5/scheduler-kata/tree/v0) quick and dirty
+  implementation where main focus was for exploring [axum
+  framework](https://docs.rs/axum/latest/axum/) and [rust
+  multithreading](https://kerkour.com/multithreading-in-rust)
+
+* [v1](https://github.com/mrl5/scheduler-kata/tree/v1) going down the
+  PostgreSQL rabbit hole and some sneak-peaking at this codebases:
+  * https://github.com/windmill-labs/windmill
+  * https://github.com/svix/svix-webhooks
+
+* [v2](https://github.com/mrl5/scheduler-kata) **(ONGOING ITERATION)** mostly
+  reusing `v1`, incorporating [aide](https://github.com/tamasfe/aide) for OAS
