@@ -67,3 +67,23 @@ pub struct TaskSnapshot {
     pub state: Option<String>,
     pub inactive_since: Option<DateTime<Utc>>,
 }
+
+#[derive(sqlx::FromRow, Serialize, Deserialize, Debug, JsonSchema)]
+pub struct TaskSummary {
+    pub id: Uuid,
+    pub typ: String,
+    pub state: Option<String>,
+}
+
+#[derive(Serialize, Deserialize, Debug, JsonSchema)]
+pub struct TasksList {
+    pub tasks: Vec<TaskSummary>,
+    pub anchor: Option<Uuid>,
+    pub per_page: usize,
+}
+
+#[derive(Deserialize, JsonSchema)]
+pub struct TaskFilter {
+    pub typ: Option<TaskType>,
+    pub state: Option<TaskState>,
+}

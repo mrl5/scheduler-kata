@@ -2,7 +2,7 @@ use aide::axum::IntoApiResponse;
 use aide::transform::TransformOperation;
 use axum::{extract::Query, http::StatusCode, response::IntoResponse, Extension};
 use chrono::{DateTime, Utc};
-use common::db::DB;
+use common::db::{Pagination, DB};
 use docs::{error::AppError, extractor::Json};
 use schemars::JsonSchema;
 use serde::Deserialize;
@@ -83,7 +83,7 @@ pub async fn delete_task(
     if let Some(t) = task {
         return Ok(Json(t).into_response());
     }
-    let task_exists = does_task_exist(db.clone(), id)
+    let task_exists = does_task_exist(db, id)
         .await
         .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?;
 
@@ -95,4 +95,19 @@ pub async fn delete_task(
             .into_response());
     }
     Ok((StatusCode::NOT_FOUND, Json(id)).into_response())
+}
+
+pub fn list_tasks_docs(op: TransformOperation) -> TransformOperation {
+    op.description("List tasks with optional filtering")
+        .response::<200, Json<model::TasksList>>()
+}
+pub async fn list_tasks(
+    Extension(db): Extension<DB>,
+    Query(pagination): Query<Pagination>,
+    Query(task_filter): Query<model::TaskFilter>,
+) -> Result<impl IntoApiResponse, StatusCode> {
+    let list = db_service::list_tasks(db, pagination, task_filter)
+        .await
+        .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?;
+    Ok(Json(list).into_response())
 }

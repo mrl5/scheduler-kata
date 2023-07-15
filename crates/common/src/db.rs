@@ -1,8 +1,13 @@
 use crate::error::Error;
+use schemars::JsonSchema;
+use serde::Deserialize;
 use sqlx::{postgres::PgPoolOptions, Pool, Postgres};
 use std::time::Duration;
+use uuid::Uuid;
 
 pub const DEFAULT_MAX_CONNECTIONS: u32 = 100;
+pub const PAGING_MAX_PER_PAGE: usize = 100;
+pub const PAGING_DEFAULT_PER_PAGE: usize = 10;
 
 pub type DB = Pool<Postgres>;
 
@@ -38,4 +43,18 @@ async fn pool_db(
         )
         .await
         .map_err(|err| Error::ConnectingToDatabase(err.to_string()))
+}
+
+#[derive(Deserialize, JsonSchema)]
+pub struct Pagination {
+    pub anchor: Option<Uuid>,
+    pub per_page: Option<usize>,
+}
+
+pub fn paginate(pagination: Pagination) -> (usize, Option<Uuid>) {
+    let per_page = pagination
+        .per_page
+        .unwrap_or(PAGING_DEFAULT_PER_PAGE)
+        .clamp(1, PAGING_MAX_PER_PAGE);
+    (per_page, pagination.anchor)
 }

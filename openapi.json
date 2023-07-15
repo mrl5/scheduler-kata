@@ -290,6 +290,90 @@
           }
         }
       }
+    },
+    "/api/v1/task/list": {
+      "get": {
+        "description": "List tasks with optional filtering",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "anchor",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "per_page",
+            "schema": {
+              "type": "integer",
+              "format": "uint",
+              "minimum": 0,
+              "nullable": true
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "state",
+            "schema": {
+              "$ref": "#/components/schemas/TaskState",
+              "nullable": true
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "typ",
+            "schema": {
+              "$ref": "#/components/schemas/TaskType",
+              "nullable": true
+            },
+            "style": "form"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "A default error response for most API errors.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "A default error response for most API errors.",
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "description": "An error message.",
+                      "type": "string"
+                    },
+                    "error_details": {
+                      "description": "Optional Additional error details."
+                    }
+                  }
+                },
+                "example": {
+                  "error": "some error happened"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TasksList"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -354,6 +438,22 @@
           "id": {
             "type": "string",
             "format": "uuid"
+          }
+        }
+      },
+      "Pagination": {
+        "type": "object",
+        "properties": {
+          "anchor": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "per_page": {
+            "type": "integer",
+            "format": "uint",
+            "minimum": 0,
+            "nullable": true
           }
         }
       },
@@ -427,6 +527,19 @@
           }
         }
       },
+      "TaskFilter": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "$ref": "#/components/schemas/TaskState",
+            "nullable": true
+          },
+          "typ": {
+            "$ref": "#/components/schemas/TaskType",
+            "nullable": true
+          }
+        }
+      },
       "TaskId": {
         "type": "object",
         "required": [
@@ -451,6 +564,26 @@
           "done"
         ]
       },
+      "TaskSummary": {
+        "type": "object",
+        "required": [
+          "id",
+          "typ"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "state": {
+            "type": "string",
+            "nullable": true
+          },
+          "typ": {
+            "type": "string"
+          }
+        }
+      },
       "TaskType": {
         "type": "string",
         "enum": [
@@ -458,6 +591,31 @@
           "type_b",
           "type_c"
         ]
+      },
+      "TasksList": {
+        "type": "object",
+        "required": [
+          "per_page",
+          "tasks"
+        ],
+        "properties": {
+          "anchor": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "per_page": {
+            "type": "integer",
+            "format": "uint",
+            "minimum": 0
+          },
+          "tasks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TaskSummary"
+            }
+          }
+        }
       }
     }
   }
