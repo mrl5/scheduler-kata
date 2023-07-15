@@ -1,4 +1,4 @@
-FROM rust:1.70 AS build-env
+FROM rust:1.71 AS build-env
 ENV SQLX_OFFLINE=true
 WORKDIR /app
 COPY ./Cargo.lock ./Cargo.toml /app/
