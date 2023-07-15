@@ -1,12 +1,13 @@
 [package]
 name = "app-monolith"
-version = "0.1.0"
-edition = "2021"
+version.workspace = true
+edition.workspace = true
 
 [dependencies]
 common.workspace = true
 docs.workspace = true
 http-server.workspace = true
+scheduler.workspace = true
 task-api.workspace = true
 
 anyhow.workspace = true

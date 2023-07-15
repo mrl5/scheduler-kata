@@ -28,6 +28,7 @@ services:
     ports:
       - 8000:8000
     environment:
+      - ENABLE_SCHEDULER=${ENABLE_SCHEDULER}
       - DATABASE_URL=${DATABASE_URL}
     depends_on:
       db:

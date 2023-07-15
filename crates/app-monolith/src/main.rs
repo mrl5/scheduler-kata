@@ -2,6 +2,8 @@ use axum::{routing::get, Extension};
 use common::db;
 use docs::{openapi, redoc};
 use http_server::{router, server};
+use scheduler::run_scheduler;
+use std::env::var;
 use std::net::SocketAddr;
 use std::sync::Arc;
 use task_api::router::task_v1_router;
@@ -12,6 +14,7 @@ const DEFAULT_PORT: &str = "8000";
 const DOCS_PATH: &str = "/docs";
 const OAS_PATH: &str = "/openapi.json";
 const API_V1_PATH: &str = "/api/v1";
+const SCHEDULER_INTERVAL: u64 = 2000;
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
@@ -21,7 +24,7 @@ async fn main() -> anyhow::Result<()> {
     tracing::subscriber::set_global_default(subscriber).expect("setting default subscriber failed");
 
     tracing::debug!("tracing initiated");
-    let port = std::env::var("API_PORT").unwrap_or_else(|_| DEFAULT_PORT.to_owned());
+    let port = var("API_PORT").unwrap_or_else(|_| DEFAULT_PORT.to_owned());
 
     let db = db::connect(Some(env!("CARGO_PKG_NAME"))).await?;
 
@@ -37,6 +40,18 @@ async fn main() -> anyhow::Result<()> {
         server::run_server(address, router, Some(DOCS_PATH), db.clone()).await?;
         Ok(()) as anyhow::Result<()>
     };
-    futures::try_join!(server_f)?;
+
+    let enable_scheduler: bool = var("ENABLE_SCHEDULER")
+        .unwrap_or("false".to_owned())
+        .parse()
+        .unwrap_or(false);
+    let scheduler_f = async {
+        if enable_scheduler {
+            run_scheduler(SCHEDULER_INTERVAL, db.clone()).await?;
+        }
+        Ok(()) as anyhow::Result<()>
+    };
+
+    futures::try_join!(server_f, scheduler_f)?;
     Ok(())
 }

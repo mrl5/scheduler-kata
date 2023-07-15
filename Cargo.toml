@@ -4,7 +4,9 @@ members = [
     "crates/common",
     "crates/docs",
     "crates/http-server",
-    "crates/task-api"
+    "crates/scheduler",
+    "crates/task-api",
+    "crates/queue"
 ]
 
 [workspace.package]
@@ -15,7 +17,9 @@ edition = "2021"
 docs = { path = "./crates/docs" }
 common = { path = "./crates/common" }
 http-server = { path = "./crates/http-server" }
+scheduler = { path = "./crates/scheduler" }
 task-api = { path = "./crates/task-api" }
+queue = { path = "./crates/queue" }
 
 aide = { version = "^0", features = ["axum", "redoc", "macros", "axum-headers"] }
 anyhow = "^1"

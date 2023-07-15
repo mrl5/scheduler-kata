@@ -1,0 +1,12 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        INSERT INTO queue (task_id, task_created_at, not_before)\n        SELECT id, created_at,\n            CASE\n                WHEN not_before IS NULL\n                    THEN created_at\n                ELSE not_before\n            END\n        FROM task_state WHERE state = 'created'\n        ORDER BY id asc LIMIT 100\n        ON CONFLICT DO NOTHING\n    ",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": []
+    },
+    "nullable": []
+  },
+  "hash": "ce1aa5682568857cc642f33ae50f9c6decdc38436917f8e2437ac872c02e8406"
+}

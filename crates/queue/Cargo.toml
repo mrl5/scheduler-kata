@@ -1,0 +1,11 @@
+[package]
+name = "queue"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+common.workspace = true
+
+anyhow.workspace = true
+sqlx.workspace = true
+uuid.workspace = true
