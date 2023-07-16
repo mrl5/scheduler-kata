@@ -6,13 +6,14 @@ use std::time::Duration;
 use tokio::spawn;
 use tokio::time::interval;
 
-// todo: parametrize number of workers
-pub async fn run_workers(db: DB) -> anyhow::Result<()> {
-    let mut handles = vec![];
+pub async fn run_workers(db: DB, workers_count: u8) -> anyhow::Result<()> {
+    let mut workers = vec![];
 
-    handles.push(run_worker(db.clone()).await?);
-    handles.push(run_worker(db.clone()).await?);
-    handles.push(run_worker(db.clone()).await?);
+    if workers_count > 0 {
+        for _ in 0..workers_count {
+            workers.push(run_worker(db.clone()).await?);
+        }
+    }
 
     Ok(())
 }

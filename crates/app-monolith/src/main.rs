@@ -58,10 +58,14 @@ async fn main() -> anyhow::Result<()> {
         .unwrap_or("false".to_owned())
         .parse()
         .unwrap_or(false);
+    let workers_count: u8 = var("WORKERS_PER_INSTANCE")
+        .unwrap_or("1".to_owned())
+        .parse()
+        .unwrap_or(1);
     let workers_f = async {
         if enable_workers {
             tracing::info!("workers enabled");
-            run_workers(db.clone()).await?;
+            run_workers(db.clone(), workers_count).await?;
         }
         Ok(()) as anyhow::Result<()>
     };
