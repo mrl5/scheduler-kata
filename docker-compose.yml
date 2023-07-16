@@ -8,6 +8,7 @@ services:
     restart: unless-stopped
     volumes:
       - db_data:/var/lib/postgresql/data
+    command: postgres -c shared_preload_libraries=pg_cron
     ports:
       - 5432:5432
     environment:
