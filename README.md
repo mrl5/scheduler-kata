@@ -58,5 +58,6 @@ http://0.0.0.0:8000/docs
   * https://github.com/windmill-labs/windmill
   * https://github.com/svix/svix-webhooks
 
-* [v2](https://github.com/mrl5/scheduler-kata) **(ONGOING ITERATION)** mostly
-  reusing `v1`, incorporating [aide](https://github.com/tamasfe/aide) for OAS
+* [v2](https://github.com/mrl5/scheduler-kata/tree/v2) mostly
+  reusing `v1`, incorporating [aide](https://github.com/tamasfe/aide) for OAS,
+  bundling scheduler, queue and worker
