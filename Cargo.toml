@@ -1,6 +1,7 @@
 [workspace]
 members = [
     "crates/app-monolith",
+    "crates/app-rest-api",
     "crates/common",
     "crates/docs",
     "crates/http-server",

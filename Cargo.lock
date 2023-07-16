@@ -120,6 +120,22 @@ dependencies = [
 ]
 
 [[package]]
+name = "app-rest-api"
+version = "0.0.0"
+dependencies = [
+ "anyhow",
+ "axum",
+ "common",
+ "docs",
+ "http-server",
+ "sqlx",
+ "task-api",
+ "tokio",
+ "tracing",
+ "tracing-subscriber",
+]
+
+[[package]]
 name = "async-trait"
 version = "0.1.71"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1690,6 +1706,7 @@ dependencies = [
  "queue",
  "tokio",
  "tracing",
+ "tracing-subscriber",
 ]
 
 [[package]]
@@ -2791,6 +2808,7 @@ dependencies = [
  "rand",
  "tokio",
  "tracing",
+ "tracing-subscriber",
 ]
 
 [[package]]

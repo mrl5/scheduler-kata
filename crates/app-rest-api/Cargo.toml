@@ -1,13 +1,17 @@
 [package]
-name = "worker"
+name = "app-rest-api"
 version.workspace = true
 edition.workspace = true
 
 [dependencies]
-anyhow.workspace = true
 common.workspace = true
-rand.workspace = true
+docs.workspace = true
+http-server.workspace = true
+task-api.workspace = true
+
+anyhow.workspace = true
+axum.workspace = true
+sqlx.workspace = true
 tokio.workspace = true
 tracing.workspace = true
 tracing-subscriber.workspace = true
-queue.workspace = true

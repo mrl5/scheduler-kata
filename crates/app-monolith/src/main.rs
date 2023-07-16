@@ -15,7 +15,7 @@ const DEFAULT_PORT: &str = "8000";
 const DOCS_PATH: &str = "/docs";
 const OAS_PATH: &str = "/openapi.json";
 const API_V1_PATH: &str = "/api/v1";
-const SCHEDULER_INTERVAL: u64 = 2000;
+const SCHEDULER_INTERVAL_MS: u64 = 2000;
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
@@ -49,7 +49,7 @@ async fn main() -> anyhow::Result<()> {
     let scheduler_f = async {
         if enable_scheduler {
             tracing::info!("scheduler enabled");
-            run_scheduler(SCHEDULER_INTERVAL, db.clone()).await?;
+            run_scheduler(SCHEDULER_INTERVAL_MS, db.clone()).await?;
         }
         Ok(()) as anyhow::Result<()>
     };

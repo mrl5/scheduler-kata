@@ -10,25 +10,32 @@ pub async fn run_workers(db: DB, workers_count: u8) -> anyhow::Result<()> {
     let mut workers = vec![];
 
     if workers_count > 0 {
-        for _ in 0..workers_count {
-            workers.push(run_worker(db.clone()).await?);
+        if workers_count > 1 {
+            for _ in 1..workers_count {
+                workers.push(run_worker(db.clone()).await?);
+            }
         }
+        run_worker_blocking(db.clone()).await;
     }
 
     Ok(())
 }
 
-pub async fn run_worker(db: DB) -> anyhow::Result<()> {
+async fn run_worker(db: DB) -> anyhow::Result<()> {
     spawn(async move {
-        let mut sleep = interval(Duration::from_millis(10));
-        loop {
-            // note: this is interesting - w/o this interval one cpu thread is always 100%
-            sleep.tick().await;
-            let _ = work(&db).await.map_err(|e| tracing::error!("{:?}", e));
-        }
+        run_worker_blocking(db).await;
     });
 
     Ok(())
+}
+
+async fn run_worker_blocking(db: DB) {
+    let mut sleep = interval(Duration::from_millis(10));
+    loop {
+        // note: this is interesting - w/o this interval one cpu thread is always 100%
+        sleep.tick().await;
+        let _ = work(&db).await.map_err(|e| tracing::error!("{:?}", e));
+    }
 }
 
 async fn work(db: &DB) -> anyhow::Result<()> {

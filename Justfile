@@ -17,8 +17,17 @@ db-only:
 dev-tools:
     cargo install hurl sqlx-cli
 
+local-app:
+    cargo run --package app-monolith
+
 local-api:
-    cargo run
+    cargo run --package app-rest-api
+
+local-scheduler:
+    cargo run --package scheduler
+
+local-worker:
+    cargo run --package worker
 
 test: test-unit test-api
 

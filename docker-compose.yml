@@ -19,17 +19,56 @@ services:
       timeout: 5s
       retries: 5
 
-  app-monolith:
+#  app-monolith:
+#    build:
+#      context: .
+#      dockerfile: ./docker/app-monolith.Dockerfile
+#    privileged: false
+#    restart: unless-stopped
+#    ports:
+#      - 8000:8000
+#    environment:
+#      - DATABASE_URL=${DATABASE_URL}
+#      - ENABLE_SCHEDULER=${ENABLE_SCHEDULER}
+#      - ENABLE_WORKERS=${ENABLE_WORKERS}
+#      - WORKERS_PER_INSTANCE=${WORKERS_PER_INSTANCE}
+#    depends_on:
+#      db:
+#        condition: service_healthy
+
+  app-rest-api:
     build:
       context: .
-      dockerfile: ./docker/app-monolith.Dockerfile
+      dockerfile: ./docker/app-rest-api.Dockerfile
     privileged: false
     restart: unless-stopped
     ports:
       - 8000:8000
     environment:
-      - ENABLE_SCHEDULER=${ENABLE_SCHEDULER}
       - DATABASE_URL=${DATABASE_URL}
+    depends_on:
+      db:
+        condition: service_healthy
+  scheduler:
+    build:
+      context: .
+      dockerfile: ./docker/scheduler.Dockerfile
+    privileged: false
+    restart: unless-stopped
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+    depends_on:
+      db:
+        condition: service_healthy
+  worker:
+    build:
+      context: .
+      dockerfile: ./docker/worker.Dockerfile
+    privileged: false
+    restart: unless-stopped
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+      - WORKERS_PER_INSTANCE=${WORKERS_PER_INSTANCE}
     depends_on:
       db:
         condition: service_healthy

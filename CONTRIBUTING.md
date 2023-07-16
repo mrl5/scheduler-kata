@@ -40,7 +40,7 @@ Unit tests
 ```console
 just test-unit
 just db-only
-just --dotenv-filename .env.local local-api
+just --dotenv-filename .env.local local-app
 just test-api
 ```
 
