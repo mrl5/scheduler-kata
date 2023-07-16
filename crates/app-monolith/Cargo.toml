@@ -9,6 +9,7 @@ docs.workspace = true
 http-server.workspace = true
 scheduler.workspace = true
 task-api.workspace = true
+worker.workspace = true
 
 anyhow.workspace = true
 axum.workspace = true

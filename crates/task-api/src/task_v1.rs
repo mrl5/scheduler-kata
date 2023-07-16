@@ -12,7 +12,7 @@ use uuid::Uuid;
 use self::db_service::does_task_exist;
 
 mod db_service;
-mod model;
+pub mod model;
 
 pub fn create_task_docs(op: TransformOperation) -> TransformOperation {
     op.description("Create new task")

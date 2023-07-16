@@ -1,0 +1,23 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n        UPDATE queue SET retries = retries + 1\n        WHERE (task_id, task_created_at) = ($1::uuid, $2::timestamptz)\n        RETURNING retries\n        ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "retries",
+        "type_info": "Int2"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Timestamptz"
+      ]
+    },
+    "nullable": [
+      false
+    ]
+  },
+  "hash": "ec3fcaaa7b9232cce2202f6a6ce291c301912c568007c3762083a95c5986e457"
+}

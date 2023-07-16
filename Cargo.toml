@@ -6,7 +6,8 @@ members = [
     "crates/http-server",
     "crates/scheduler",
     "crates/task-api",
-    "crates/queue"
+    "crates/queue",
+    "crates/worker"
 ]
 
 [workspace.package]
@@ -20,6 +21,7 @@ http-server = { path = "./crates/http-server" }
 scheduler = { path = "./crates/scheduler" }
 task-api = { path = "./crates/task-api" }
 queue = { path = "./crates/queue" }
+worker = { path = "./crates/worker" }
 
 aide = { version = "^0", features = ["axum", "redoc", "macros", "axum-headers"] }
 anyhow = "^1"
@@ -30,6 +32,7 @@ axum-jsonschema = { version = "^0", features = ["aide"] }
 chrono = { version = "^0", features = ["serde"] }
 futures = "^0"
 hyper = { version = "^0", features = ["full"] }
+rand = "^0"
 schemars = { version = "^0", features = ["uuid1", "chrono"] }
 serde = { version = "^1",  features = ["derive", "rc"] }
 serde_json = { version = "^1", features = ["preserve_order"] }

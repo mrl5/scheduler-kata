@@ -5,7 +5,10 @@ edition.workspace = true
 
 [dependencies]
 common.workspace = true
+task-api.workspace = true
 
 anyhow.workspace = true
+chrono.workspace = true
 sqlx.workspace = true
+tracing.workspace = true
 uuid.workspace = true

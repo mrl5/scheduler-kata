@@ -6,6 +6,8 @@ pub enum Error {
     BadConfig(String),
     #[error("Connecting to database: {0}")]
     ConnectingToDatabase(String),
+    #[error("Worker error: {0}")]
+    WorkerError(String),
     #[error(transparent)]
     Anyhow(#[from] anyhow::Error),
 }

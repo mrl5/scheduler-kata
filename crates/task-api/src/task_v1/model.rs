@@ -13,7 +13,7 @@ pub enum TaskType {
     TypeC,
 }
 
-#[derive(Serialize, Deserialize, Debug, Display, JsonSchema)]
+#[derive(Serialize, Deserialize, Debug, Display, JsonSchema, PartialEq)]
 #[strum(serialize_all = "snake_case")]
 #[serde(rename_all = "snake_case")]
 pub enum TaskState {

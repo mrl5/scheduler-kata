@@ -9,6 +9,7 @@ use std::sync::Arc;
 use task_api::router::task_v1_router;
 use tracing::Level;
 use tracing_subscriber::FmtSubscriber;
+use worker::run_workers;
 
 const DEFAULT_PORT: &str = "8000";
 const DOCS_PATH: &str = "/docs";
@@ -47,11 +48,24 @@ async fn main() -> anyhow::Result<()> {
         .unwrap_or(false);
     let scheduler_f = async {
         if enable_scheduler {
+            tracing::info!("scheduler enabled");
             run_scheduler(SCHEDULER_INTERVAL, db.clone()).await?;
         }
         Ok(()) as anyhow::Result<()>
     };
 
-    futures::try_join!(server_f, scheduler_f)?;
+    let enable_workers: bool = var("ENABLE_WORKERS")
+        .unwrap_or("false".to_owned())
+        .parse()
+        .unwrap_or(false);
+    let workers_f = async {
+        if enable_workers {
+            tracing::info!("workers enabled");
+            run_workers(db.clone()).await?;
+        }
+        Ok(()) as anyhow::Result<()>
+    };
+
+    futures::try_join!(server_f, scheduler_f, workers_f)?;
     Ok(())
 }

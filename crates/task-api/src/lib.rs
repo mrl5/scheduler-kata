@@ -1,2 +1,2 @@
 pub mod router;
-mod task_v1;
+pub mod task_v1;
