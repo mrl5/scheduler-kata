@@ -46,5 +46,5 @@ just test-api
 
 Before `git commit` you can run
 ```console
-just lint
+just sqlx-prepare lint
 ```

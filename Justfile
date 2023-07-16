@@ -114,7 +114,6 @@ db-migrate:
 
 _db-migrate:
     sqlx migrate run -D "${DB_URI}&options=-c search_path=tenant_${TENANT}"
-    cargo sqlx prepare --workspace -D "${DB_URI}&options=-c search_path=tenant_${TENANT}"
 
     PGPASSWORD=${ADMIN_DB_PASSWORD} psql -h ${SQLX_DB_HOST} -p ${DB_PORT} \
         -U ${ADMIN_DB_USER} -d ${DB_NAME} \
@@ -123,3 +122,9 @@ _db-migrate:
     PGPASSWORD=${ADMIN_DB_PASSWORD} psql -h ${SQLX_DB_HOST} -p ${DB_PORT} \
         -U ${ADMIN_DB_USER} -d ${DB_NAME} \
         -c "CALL internal.create_partition_for_next_month('${TENANT}', 'task');"
+
+sqlx-prepare:
+    just --dotenv-filename .env.sqlx TENANT=${TENANT} _sqlx-prepare
+
+_sqlx-prepare:
+    cargo sqlx prepare --workspace -D "${DB_URI}&options=-c search_path=tenant_${TENANT}"
