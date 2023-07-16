@@ -4,7 +4,7 @@ use sqlx::PgExecutor;
 use task_api::task_v1::model::TaskState;
 use uuid::Uuid;
 
-const RETRIES_HARD_LIMIT: i16 = 3;
+const RETRIES_HARD_LIMIT: i16 = 1;
 const FINISH_STATES: [TaskState; 2] = [TaskState::Done, TaskState::Failed];
 
 #[derive(sqlx::FromRow)]
