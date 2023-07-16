@@ -61,3 +61,6 @@ http://0.0.0.0:8000/docs
 * [v2](https://github.com/mrl5/scheduler-kata/tree/v2) mostly
   reusing `v1`, incorporating [aide](https://github.com/tamasfe/aide) for OAS,
   bundling scheduler, queue and worker
+
+* [v3](https://github.com/mrl5/scheduler-kata) telemetry, benchmarking and
+  performance improvements
