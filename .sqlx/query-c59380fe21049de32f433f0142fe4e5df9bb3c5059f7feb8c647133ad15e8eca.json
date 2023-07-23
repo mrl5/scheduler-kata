@@ -1,0 +1,24 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\nWITH t AS (\n    INSERT INTO task (\n        id,\n        typ,\n        not_before\n    )\n    VALUES (\n        $1,\n        $2,\n        $3\n    ) RETURNING created_at, not_before, id\n) INSERT INTO task_bucket SELECT created_at, not_before, id from t RETURNING id\n        ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Uuid"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Text",
+        "Timestamptz"
+      ]
+    },
+    "nullable": [
+      false
+    ]
+  },
+  "hash": "c59380fe21049de32f433f0142fe4e5df9bb3c5059f7feb8c647133ad15e8eca"
+}

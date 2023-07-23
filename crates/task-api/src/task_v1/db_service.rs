@@ -14,17 +14,18 @@ pub async fn create_task(
     Ok(sqlx::query_as!(
         model::TaskId,
         r#"
-        INSERT INTO task (
-            id,
-            typ,
-            not_before
-        )
-        VALUES (
-            $1,
-            $2,
-            $3
-        )
-        RETURNING id
+WITH t AS (
+    INSERT INTO task (
+        id,
+        typ,
+        not_before
+    )
+    VALUES (
+        $1,
+        $2,
+        $3
+    ) RETURNING created_at, not_before, id
+) INSERT INTO task_bucket SELECT created_at, not_before, id from t RETURNING id
         "#,
         id,
         task_type.to_string(),
@@ -62,7 +63,7 @@ pub async fn delete_task(
     Ok(sqlx::query_as!(
         model::TaskSnapshot,
         r#"
-        WITH deleted_task as (
+        WITH deleted_task AS (
             UPDATE task
             SET inactive_since = now(), state = $1
             FROM (
@@ -73,11 +74,14 @@ pub async fn delete_task(
             ) as t
             WHERE id = t.task_id
             RETURNING id, state, inactive_since
+        ), dt AS (
+            DELETE FROM task_bucket USING deleted_task
+            WHERE task_bucket.id = deleted_task.id
         ) SELECT id, state, inactive_since FROM (
-        SELECT id, state, inactive_since FROM deleted_task
-        UNION ALL
-        SELECT id, state, inactive_since FROM task
-        WHERE id = $2::uuid AND state = $1
+            SELECT id, state, inactive_since FROM deleted_task
+            UNION ALL
+            SELECT id, state, inactive_since FROM task
+            WHERE id = $2::uuid AND state = $1
         ) t
         "#,
         model::TaskState::Deleted.to_string(),

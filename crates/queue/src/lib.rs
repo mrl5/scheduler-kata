@@ -16,18 +16,21 @@ pub struct QueuePKey {
 pub async fn enqueue(db: &DB) -> anyhow::Result<()> {
     let _ = sqlx::query!(
         r#"
-        INSERT INTO queue (task_id, task_created_at, not_before)
-        SELECT id, created_at,
-            CASE
-                WHEN not_before IS NULL
-                    THEN created_at
-                ELSE not_before
-            END
-        FROM task_state WHERE state = $1::text
-        ORDER BY id asc LIMIT 100
-        ON CONFLICT DO NOTHING
-    "#,
-        TaskState::Created.to_string()
+WITH q AS (
+    DELETE FROM task_bucket USING (
+        SELECT id FROM task_bucket LIMIT 100 FOR UPDATE SKIP LOCKED
+    ) t
+    WHERE t.id = task_bucket.id
+    RETURNING task_bucket.id, task_bucket.created_at, task_bucket.not_before
+) INSERT INTO queue (task_id, task_created_at, not_before)
+SELECT id, created_at,
+    CASE
+        WHEN not_before IS NULL
+            THEN created_at
+        ELSE not_before
+    END
+from q ON CONFLICT DO NOTHING
+        "#,
     )
     .execute(db)
     .await?;
