@@ -34,6 +34,7 @@ async fn pool_db(
         .acquire_timeout(Duration::from_secs(5))
         .max_connections(max_connections)
         .max_lifetime(Duration::from_secs(5 * 60))
+        .idle_timeout(Duration::from_secs(60))
         .connect(
             format!(
                 "{database_url}&application_name={}",
