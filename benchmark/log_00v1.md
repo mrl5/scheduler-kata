@@ -1,4 +1,4 @@
-# Benchmark no. 0000
+# Benchmark no. 00
 
 Captured state for commit
 [7adc5dacb8](https://github.com/mrl5/scheduler-kata/tree/7adc5dacb81bf42af19d5390f1127b255c397a55)
@@ -24,7 +24,7 @@ Database
 
 
 ## Description
-Analyze query performance when both REST API and WORKERS are running
+Analyze query performance when both REST API, SCHEDULER and WORKERS are running
 
 
 ### Refs
@@ -104,7 +104,7 @@ docker compose up app-monolith worker
 3. Start benchmark
 ```console
 export PGPASSWORD=changeme1
-bash ./benchmark/bench.sh
+bash ./benchmark/00_all-at-once/bench.sh
 ```
 
 4. Stop containers once there is no active task in queue
