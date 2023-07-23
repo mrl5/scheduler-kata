@@ -1,0 +1,606 @@
+2023-07-23T09:19:55+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O       BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   0.64%     24.35MiB / 3.782GiB   0.63%     1.02kB / 0B   0B / 0B     7
+2023-07-23T09:20:31+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   2.37%     55.79MiB / 3.782GiB   1.44%     63.7kB / 41.5kB   0B / 0B     20
+2023-07-23T09:20:35+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O         BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   87.52%    83.91MiB / 3.782GiB   2.17%     207kB / 183kB   0B / 0B     29
+2023-07-23T09:20:37+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT   MEM %     NET I/O         BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   93.09%    87MiB / 3.782GiB    2.25%     265kB / 244kB   0B / 0B     30
+2023-07-23T09:20:39+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O         BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   100.24%   87.98MiB / 3.782GiB   2.27%     321kB / 302kB   0B / 0B     30
+2023-07-23T09:20:41+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O         BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   97.92%    89.42MiB / 3.782GiB   2.31%     378kB / 362kB   0B / 0B     30
+2023-07-23T09:20:43+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O         BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   89.94%    90.62MiB / 3.782GiB   2.34%     438kB / 424kB   0B / 0B     30
+2023-07-23T09:20:45+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT   MEM %     NET I/O         BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   96.63%    91MiB / 3.782GiB    2.35%     493kB / 480kB   0B / 0B     30
+2023-07-23T09:20:47+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O         BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   85.12%    92.31MiB / 3.782GiB   2.38%     551kB / 542kB   0B / 0B     30
+2023-07-23T09:20:49+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O         BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   93.41%    92.74MiB / 3.782GiB   2.39%     604kB / 600kB   0B / 0B     30
+2023-07-23T09:20:51+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O         BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   70.63%    92.73MiB / 3.782GiB   2.39%     657kB / 659kB   0B / 0B     30
+2023-07-23T09:20:53+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O         BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   66.47%    92.93MiB / 3.782GiB   2.40%     709kB / 717kB   0B / 0B     30
+2023-07-23T09:20:55+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O         BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   99.97%    93.25MiB / 3.782GiB   2.41%     765kB / 773kB   0B / 0B     30
+2023-07-23T09:20:57+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O         BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   78.16%    93.21MiB / 3.782GiB   2.41%     823kB / 835kB   0B / 0B     30
+2023-07-23T09:20:59+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O         BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   88.15%    93.43MiB / 3.782GiB   2.41%     877kB / 894kB   0B / 0B     30
+2023-07-23T09:21:01+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O         BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   105.34%   93.65MiB / 3.782GiB   2.42%     934kB / 953kB   0B / 0B     30
+2023-07-23T09:21:03+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   92.88%    93.88MiB / 3.782GiB   2.42%     989kB / 1.01MB   0B / 0B     30
+2023-07-23T09:21:05+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   109.39%   93.86MiB / 3.782GiB   2.42%     1.04MB / 1.07MB   0B / 0B     30
+2023-07-23T09:21:07+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   93.13%    93.98MiB / 3.782GiB   2.43%     1.1MB / 1.13MB   0B / 0B     30
+2023-07-23T09:21:09+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   96.03%    94.09MiB / 3.782GiB   2.43%     1.16MB / 1.19MB   0B / 0B     30
+2023-07-23T09:21:11+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   90.36%    94.29MiB / 3.782GiB   2.43%     1.21MB / 1.25MB   0B / 0B     30
+2023-07-23T09:21:13+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   63.42%    94.43MiB / 3.782GiB   2.44%     1.27MB / 1.3MB   0B / 0B     30
+2023-07-23T09:21:15+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   86.80%    94.51MiB / 3.782GiB   2.44%     1.33MB / 1.36MB   0B / 0B     30
+2023-07-23T09:21:17+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   76.47%    94.62MiB / 3.782GiB   2.44%     1.39MB / 1.42MB   0B / 0B     30
+2023-07-23T09:21:19+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   86.49%    94.64MiB / 3.782GiB   2.44%     1.45MB / 1.47MB   0B / 0B     30
+2023-07-23T09:21:21+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT    MEM %     NET I/O          BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   94.00%    94.6MiB / 3.782GiB   2.44%     1.5MB / 1.53MB   0B / 0B     30
+2023-07-23T09:21:23+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   50.20%    94.39MiB / 3.782GiB   2.44%     1.55MB / 1.59MB   0B / 0B     30
+2023-07-23T09:21:25+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   77.49%    94.62MiB / 3.782GiB   2.44%     1.61MB / 1.65MB   0B / 0B     30
+2023-07-23T09:21:27+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   66.28%    94.81MiB / 3.782GiB   2.45%     1.66MB / 1.7MB   0B / 0B     30
+2023-07-23T09:21:29+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   58.90%    94.77MiB / 3.782GiB   2.45%     1.72MB / 1.76MB   0B / 0B     30
+2023-07-23T09:21:31+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   88.86%    94.98MiB / 3.782GiB   2.45%     1.77MB / 1.82MB   0B / 0B     30
+2023-07-23T09:21:33+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   91.23%    94.96MiB / 3.782GiB   2.45%     1.83MB / 1.88MB   0B / 0B     30
+2023-07-23T09:21:35+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   93.96%    95MiB / 3.782GiB    2.45%     1.89MB / 1.94MB   0B / 0B     30
+2023-07-23T09:21:37+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT    MEM %     NET I/O        BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   75.31%    95.1MiB / 3.782GiB   2.46%     1.95MB / 2MB   0B / 0B     30
+2023-07-23T09:21:39+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O        BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   77.58%    94.97MiB / 3.782GiB   2.45%     2MB / 2.06MB   0B / 0B     30
+2023-07-23T09:21:41+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   82.36%    95.32MiB / 3.782GiB   2.46%     2.06MB / 2.12MB   0B / 0B     30
+2023-07-23T09:21:43+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   86.81%    95.28MiB / 3.782GiB   2.46%     2.11MB / 2.18MB   0B / 0B     30
+2023-07-23T09:21:45+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   98.98%    95.24MiB / 3.782GiB   2.46%     2.17MB / 2.24MB   0B / 0B     30
+2023-07-23T09:21:47+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   78.73%    95.08MiB / 3.782GiB   2.46%     2.23MB / 2.3MB   0B / 0B     30
+2023-07-23T09:21:49+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   90.93%    95.29MiB / 3.782GiB   2.46%     2.28MB / 2.36MB   0B / 0B     30
+2023-07-23T09:21:51+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   82.52%    95.25MiB / 3.782GiB   2.46%     2.34MB / 2.42MB   0B / 0B     30
+2023-07-23T09:21:53+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   84.25%    95.32MiB / 3.782GiB   2.46%     2.39MB / 2.48MB   0B / 0B     30
+2023-07-23T09:21:55+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   102.08%   95.78MiB / 3.782GiB   2.47%     2.45MB / 2.53MB   0B / 0B     30
+2023-07-23T09:21:57+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   83.86%    95.97MiB / 3.782GiB   2.48%     2.51MB / 2.59MB   0B / 0B     30
+2023-07-23T09:21:59+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   96.77%    95.99MiB / 3.782GiB   2.48%     2.56MB / 2.65MB   0B / 0B     30
+2023-07-23T09:22:01+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT    MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   71.35%    96.2MiB / 3.782GiB   2.48%     2.61MB / 2.71MB   0B / 0B     30
+2023-07-23T09:22:03+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   66.59%    96.05MiB / 3.782GiB   2.48%     2.67MB / 2.77MB   0B / 0B     30
+2023-07-23T09:22:05+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   91.89%    96.17MiB / 3.782GiB   2.48%     2.72MB / 2.83MB   0B / 0B     30
+2023-07-23T09:22:07+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   76.22%    96.14MiB / 3.782GiB   2.48%     2.78MB / 2.89MB   0B / 0B     30
+2023-07-23T09:22:09+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   93.72%    96.25MiB / 3.782GiB   2.49%     2.83MB / 2.95MB   0B / 0B     30
+2023-07-23T09:22:11+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   97.57%    96.09MiB / 3.782GiB   2.48%     2.88MB / 3.01MB   0B / 0B     30
+2023-07-23T09:22:13+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   81.52%    96.07MiB / 3.782GiB   2.48%     2.94MB / 3.06MB   0B / 0B     30
+2023-07-23T09:22:15+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   89.57%    96.26MiB / 3.782GiB   2.49%     2.99MB / 3.12MB   0B / 0B     30
+2023-07-23T09:22:17+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   76.28%    96.36MiB / 3.782GiB   2.49%     3.05MB / 3.18MB   0B / 0B     30
+2023-07-23T09:22:20+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   97.26%    96.28MiB / 3.782GiB   2.49%     3.1MB / 3.24MB   0B / 0B     30
+2023-07-23T09:22:22+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   75.23%    96.38MiB / 3.782GiB   2.49%     3.16MB / 3.3MB   0B / 0B     30
+2023-07-23T09:22:24+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   85.43%    96.45MiB / 3.782GiB   2.49%     3.22MB / 3.36MB   0B / 0B     30
+2023-07-23T09:22:26+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   96.43%    96.53MiB / 3.782GiB   2.49%     3.27MB / 3.42MB   0B / 0B     30
+2023-07-23T09:22:28+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   73.01%    96.64MiB / 3.782GiB   2.50%     3.32MB / 3.48MB   0B / 0B     30
+2023-07-23T09:22:30+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   113.31%   96.47MiB / 3.782GiB   2.49%     3.38MB / 3.54MB   0B / 0B     30
+2023-07-23T09:22:32+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   89.32%    96.54MiB / 3.782GiB   2.49%     3.43MB / 3.6MB   0B / 0B     30
+2023-07-23T09:22:34+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   98.71%    96.55MiB / 3.782GiB   2.49%     3.5MB / 3.66MB   0B / 0B     30
+2023-07-23T09:22:36+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT    MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   75.01%    96.6MiB / 3.782GiB   2.49%     3.57MB / 3.72MB   0B / 0B     30
+2023-07-23T09:22:38+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   71.15%    96.45MiB / 3.782GiB   2.49%     3.63MB / 3.77MB   0B / 0B     30
+2023-07-23T09:22:40+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   70.30%    96.99MiB / 3.782GiB   2.50%     3.68MB / 3.83MB   0B / 0B     30
+2023-07-23T09:22:42+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   100.29%   96.62MiB / 3.782GiB   2.49%     3.74MB / 3.89MB   0B / 0B     30
+2023-07-23T09:22:44+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   82.26%    96.59MiB / 3.782GiB   2.49%     3.8MB / 3.95MB   0B / 0B     30
+2023-07-23T09:22:46+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   88.21%    96.68MiB / 3.782GiB   2.50%     3.85MB / 3.99MB   0B / 0B     30
+2023-07-23T09:22:48+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   61.98%    96.67MiB / 3.782GiB   2.50%     3.91MB / 4.06MB   0B / 0B     30
+2023-07-23T09:22:50+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   105.81%   99.27MiB / 3.782GiB   2.56%     3.96MB / 4.12MB   0B / 0B     37
+2023-07-23T09:22:52+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   69.56%    96.62MiB / 3.782GiB   2.49%     4.02MB / 4.18MB   0B / 0B     30
+2023-07-23T09:22:54+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   87.64%    98.11MiB / 3.782GiB   2.53%     4.07MB / 4.24MB   0B / 0B     31
+2023-07-23T09:22:56+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   94.04%    96.44MiB / 3.782GiB   2.49%     4.13MB / 4.3MB   0B / 0B     30
+2023-07-23T09:22:58+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   95.24%    96.28MiB / 3.782GiB   2.49%     4.19MB / 4.36MB   0B / 0B     30
+2023-07-23T09:23:00+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   93.11%    96.39MiB / 3.782GiB   2.49%     4.24MB / 4.42MB   0B / 0B     30
+2023-07-23T09:23:02+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   79.14%    96.39MiB / 3.782GiB   2.49%     4.3MB / 4.48MB   0B / 0B     30
+2023-07-23T09:23:04+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   99.68%    96.49MiB / 3.782GiB   2.49%     4.35MB / 4.54MB   0B / 0B     30
+2023-07-23T09:23:06+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   90.93%    96.48MiB / 3.782GiB   2.49%     4.41MB / 4.59MB   0B / 0B     30
+2023-07-23T09:23:08+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   85.17%    96.45MiB / 3.782GiB   2.49%     4.47MB / 4.65MB   0B / 0B     30
+2023-07-23T09:23:10+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   76.25%    96.56MiB / 3.782GiB   2.49%     4.52MB / 4.71MB   0B / 0B     30
+2023-07-23T09:23:12+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   97.10%    96.51MiB / 3.782GiB   2.49%     4.58MB / 4.77MB   0B / 0B     30
+2023-07-23T09:23:14+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   89.29%    96.59MiB / 3.782GiB   2.49%     4.63MB / 4.83MB   0B / 0B     30
+2023-07-23T09:23:16+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   109.43%   96.68MiB / 3.782GiB   2.50%     4.69MB / 4.89MB   0B / 0B     30
+2023-07-23T09:23:18+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   107.59%   96.65MiB / 3.782GiB   2.50%     4.74MB / 4.95MB   0B / 0B     30
+2023-07-23T09:23:20+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   99.42%    96.63MiB / 3.782GiB   2.50%     4.8MB / 5.01MB   0B / 0B     30
+2023-07-23T09:23:22+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   95.29%    96.54MiB / 3.782GiB   2.49%     4.86MB / 5.07MB   0B / 0B     30
+2023-07-23T09:23:24+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   95.49%    96.64MiB / 3.782GiB   2.50%     4.91MB / 5.13MB   0B / 0B     30
+2023-07-23T09:23:26+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   51.98%    96.63MiB / 3.782GiB   2.50%     4.95MB / 5.15MB   0B / 0B     30
+2023-07-23T09:23:28+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   67.95%    96.57MiB / 3.782GiB   2.49%     5.02MB / 5.22MB   0B / 0B     30
+2023-07-23T09:23:30+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   80.77%    96.68MiB / 3.782GiB   2.50%     5.08MB / 5.29MB   0B / 0B     30
+2023-07-23T09:23:32+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   99.00%    96.57MiB / 3.782GiB   2.49%     5.14MB / 5.36MB   0B / 0B     30
+2023-07-23T09:23:34+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   79.87%    96.72MiB / 3.782GiB   2.50%     5.19MB / 5.4MB   0B / 0B     30
+2023-07-23T09:23:36+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   83.65%    96.49MiB / 3.782GiB   2.49%     5.25MB / 5.47MB   0B / 0B     30
+2023-07-23T09:23:38+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   82.96%    96.83MiB / 3.782GiB   2.50%     5.31MB / 5.53MB   0B / 0B     30
+2023-07-23T09:23:40+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT    MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   88.55%    96.8MiB / 3.782GiB   2.50%     5.36MB / 5.57MB   0B / 0B     30
+2023-07-23T09:23:42+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   75.84%    96.86MiB / 3.782GiB   2.50%     5.42MB / 5.63MB   0B / 0B     30
+2023-07-23T09:23:45+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   50.32%    96.82MiB / 3.782GiB   2.50%     5.47MB / 5.69MB   0B / 0B     30
+2023-07-23T09:23:47+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   46.86%    96.77MiB / 3.782GiB   2.50%     5.54MB / 5.75MB   0B / 0B     30
+2023-07-23T09:23:49+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   68.15%    96.86MiB / 3.782GiB   2.50%     5.6MB / 5.81MB   0B / 0B     30
+2023-07-23T09:23:51+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   75.43%    99.32MiB / 3.782GiB   2.56%     5.66MB / 5.87MB   0B / 0B     37
+2023-07-23T09:23:53+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   72.82%    96.78MiB / 3.782GiB   2.50%     5.72MB / 5.93MB   0B / 0B     30
+2023-07-23T09:23:55+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   23.80%    96.79MiB / 3.782GiB   2.50%     5.77MB / 5.98MB   0B / 0B     30
+2023-07-23T09:23:58+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   97.87%    98.21MiB / 3.782GiB   2.54%     5.89MB / 6.09MB   0B / 0B     31
+2023-07-23T09:23:59+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   80.98%    98.42MiB / 3.782GiB   2.54%     5.95MB / 6.15MB   0B / 0B     31
+2023-07-23T09:24:01+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   83.92%    100.3MiB / 3.782GiB   2.59%     6.01MB / 6.21MB   0B / 0B     38
+2023-07-23T09:24:03+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT    MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   92.67%    98.6MiB / 3.782GiB   2.55%     6.06MB / 6.26MB   0B / 0B     31
+2023-07-23T09:24:05+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   94.01%    98.56MiB / 3.782GiB   2.54%     6.12MB / 6.31MB   0B / 0B     31
+2023-07-23T09:24:07+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   94.81%    99.02MiB / 3.782GiB   2.56%     6.17MB / 6.37MB   0B / 0B     31
+2023-07-23T09:24:09+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   100.17%   98.98MiB / 3.782GiB   2.56%     6.23MB / 6.43MB   0B / 0B     31
+2023-07-23T09:24:11+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   87.36%    99.07MiB / 3.782GiB   2.56%     6.29MB / 6.49MB   0B / 0B     31
+2023-07-23T09:24:13+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   96.76%    98.93MiB / 3.782GiB   2.55%     6.34MB / 6.55MB   0B / 0B     31
+2023-07-23T09:24:15+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT   MEM %     NET I/O         BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   96.58%    99MiB / 3.782GiB    2.56%     6.4MB / 6.6MB   0B / 0B     31
+2023-07-23T09:24:17+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   111.16%   99.21MiB / 3.782GiB   2.56%     6.46MB / 6.67MB   0B / 0B     31
+2023-07-23T09:24:19+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   95.79%    99.31MiB / 3.782GiB   2.56%     6.52MB / 6.73MB   0B / 0B     31
+2023-07-23T09:24:21+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT    MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   102.40%   99.4MiB / 3.782GiB   2.57%     6.57MB / 6.78MB   0B / 0B     31
+2023-07-23T09:24:23+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   81.02%    99.31MiB / 3.782GiB   2.56%     6.63MB / 6.85MB   0B / 0B     31
+2023-07-23T09:24:26+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   96.14%    99.39MiB / 3.782GiB   2.57%     6.69MB / 6.9MB   0B / 0B     31
+2023-07-23T09:24:28+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   88.41%    99.48MiB / 3.782GiB   2.57%     6.75MB / 6.96MB   0B / 0B     31
+2023-07-23T09:24:30+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   81.80%    99.44MiB / 3.782GiB   2.57%     6.8MB / 7.02MB   0B / 0B     31
+2023-07-23T09:24:32+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   108.01%   99.53MiB / 3.782GiB   2.57%     6.85MB / 7.08MB   0B / 0B     31
+2023-07-23T09:24:34+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   91.24%    99.53MiB / 3.782GiB   2.57%     6.91MB / 7.14MB   0B / 0B     31
+2023-07-23T09:24:36+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT    MEM %     NET I/O          BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   103.40%   99.3MiB / 3.782GiB   2.56%     6.97MB / 7.2MB   0B / 0B     31
+2023-07-23T09:24:38+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   98.47%    99.39MiB / 3.782GiB   2.57%     7.03MB / 7.26MB   0B / 0B     31
+2023-07-23T09:24:40+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   111.21%   99.61MiB / 3.782GiB   2.57%     7.08MB / 7.32MB   0B / 0B     31
+2023-07-23T09:24:42+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   103.04%   99.71MiB / 3.782GiB   2.57%     7.14MB / 7.38MB   0B / 0B     31
+2023-07-23T09:24:44+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   101.64%   99.64MiB / 3.782GiB   2.57%     7.19MB / 7.44MB   0B / 0B     31
+2023-07-23T09:24:46+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   108.33%   99.48MiB / 3.782GiB   2.57%     7.25MB / 7.49MB   0B / 0B     31
+2023-07-23T09:24:48+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   99.73%    99.71MiB / 3.782GiB   2.57%     7.31MB / 7.55MB   0B / 0B     31
+2023-07-23T09:24:50+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   100.34%   99.55MiB / 3.782GiB   2.57%     7.36MB / 7.61MB   0B / 0B     31
+2023-07-23T09:24:52+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   91.99%    99.63MiB / 3.782GiB   2.57%     7.41MB / 7.67MB   0B / 0B     31
+2023-07-23T09:24:54+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   101.30%   99.82MiB / 3.782GiB   2.58%     7.47MB / 7.72MB   0B / 0B     31
+2023-07-23T09:24:56+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   110.33%   99.74MiB / 3.782GiB   2.58%     7.53MB / 7.79MB   0B / 0B     31
+2023-07-23T09:24:58+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   123.05%   99.83MiB / 3.782GiB   2.58%     7.59MB / 7.85MB   0B / 0B     31
+2023-07-23T09:25:00+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   108.81%   100.1MiB / 3.782GiB   2.58%     7.65MB / 7.91MB   0B / 0B     31
+2023-07-23T09:25:02+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   118.38%   100.2MiB / 3.782GiB   2.59%     7.7MB / 7.97MB   0B / 0B     31
+2023-07-23T09:25:04+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   98.04%    100.3MiB / 3.782GiB   2.59%     7.76MB / 8.03MB   0B / 0B     31
+2023-07-23T09:25:06+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   101.03%   100.3MiB / 3.782GiB   2.59%     7.81MB / 8.09MB   0B / 0B     31
+2023-07-23T09:25:08+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   101.02%   100.3MiB / 3.782GiB   2.59%     7.87MB / 8.14MB   0B / 0B     31
+2023-07-23T09:25:10+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   108.22%   100.4MiB / 3.782GiB   2.59%     7.92MB / 8.2MB   0B / 0B     31
+2023-07-23T09:25:12+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   112.32%   98.23MiB / 3.782GiB   2.54%     7.98MB / 8.26MB   0B / 0B     31
+2023-07-23T09:25:14+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   132.25%   91.46MiB / 3.782GiB   2.36%     8.05MB / 8.33MB   0B / 0B     28
+2023-07-23T09:25:16+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   89.77%    93.35MiB / 3.782GiB   2.41%     8.11MB / 8.38MB   0B / 0B     29
+2023-07-23T09:25:18+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   96.91%    91.94MiB / 3.782GiB   2.37%     8.17MB / 8.44MB   0B / 0B     29
+2023-07-23T09:25:20+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   103.10%   91.58MiB / 3.782GiB   2.36%     8.23MB / 8.5MB   0B / 0B     29
+2023-07-23T09:25:22+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   98.37%    93.12MiB / 3.782GiB   2.40%     8.29MB / 8.56MB   0B / 0B     29
+2023-07-23T09:25:24+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   123.51%   93.26MiB / 3.782GiB   2.41%     8.35MB / 8.62MB   0B / 0B     29
+2023-07-23T09:25:26+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   118.62%   93.07MiB / 3.782GiB   2.40%     8.41MB / 8.67MB   0B / 0B     29
+2023-07-23T09:25:28+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   82.86%    93.18MiB / 3.782GiB   2.41%     8.46MB / 8.73MB   0B / 0B     29
+2023-07-23T09:25:30+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT    MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   99.94%    93.4MiB / 3.782GiB   2.41%     8.52MB / 8.79MB   0B / 0B     29
+2023-07-23T09:25:32+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   102.57%   84.36MiB / 3.782GiB   2.18%     8.58MB / 8.86MB   0B / 0B     29
+2023-07-23T09:25:34+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   104.11%   83.28MiB / 3.782GiB   2.15%     8.65MB / 8.92MB   0B / 0B     29
+2023-07-23T09:25:36+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   103.86%   83.64MiB / 3.782GiB   2.16%     8.72MB / 8.99MB   0B / 0B     29
+2023-07-23T09:25:38+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   107.37%   85.52MiB / 3.782GiB   2.21%     8.78MB / 9.05MB   0B / 0B     29
+2023-07-23T09:25:40+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   100.87%   86.55MiB / 3.782GiB   2.23%     8.84MB / 9.11MB   0B / 0B     29
+2023-07-23T09:25:42+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   109.90%   88.77MiB / 3.782GiB   2.29%     8.89MB / 9.17MB   0B / 0B     29
+2023-07-23T09:25:44+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   125.82%   89MiB / 3.782GiB    2.30%     8.95MB / 9.23MB   0B / 0B     29
+2023-07-23T09:25:46+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O        BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   87.90%    89.75MiB / 3.782GiB   2.32%     9MB / 9.29MB   0B / 0B     29
+2023-07-23T09:25:48+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT    MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   115.23%   89.7MiB / 3.782GiB   2.32%     9.06MB / 9.35MB   0B / 0B     29
+2023-07-23T09:25:50+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   121.71%   89.96MiB / 3.782GiB   2.32%     9.11MB / 9.41MB   0B / 0B     29
+2023-07-23T09:25:52+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   105.74%   90.44MiB / 3.782GiB   2.34%     9.16MB / 9.47MB   0B / 0B     29
+2023-07-23T09:25:54+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   123.39%   91.08MiB / 3.782GiB   2.35%     9.22MB / 9.53MB   0B / 0B     29
+2023-07-23T09:25:56+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   107.61%   91.52MiB / 3.782GiB   2.36%     9.28MB / 9.59MB   0B / 0B     29
+2023-07-23T09:25:58+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   121.33%   92.13MiB / 3.782GiB   2.38%     9.33MB / 9.65MB   0B / 0B     29
+2023-07-23T09:26:00+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT    MEM %     NET I/O          BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   123.99%   92.5MiB / 3.782GiB   2.39%     9.39MB / 9.7MB   0B / 0B     29
+2023-07-23T09:26:02+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   118.09%   92.47MiB / 3.782GiB   2.39%     9.45MB / 9.77MB   0B / 0B     29
+2023-07-23T09:26:04+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   130.36%   92.48MiB / 3.782GiB   2.39%     9.5MB / 9.83MB   0B / 0B     29
+2023-07-23T09:26:06+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   114.96%   94.72MiB / 3.782GiB   2.45%     9.56MB / 9.89MB   0B / 0B     30
+2023-07-23T09:26:08+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   97.18%    94.57MiB / 3.782GiB   2.44%     9.61MB / 9.94MB   0B / 0B     30
+2023-07-23T09:26:10+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   115.48%   94.67MiB / 3.782GiB   2.44%     9.66MB / 9.99MB   0B / 0B     30
+2023-07-23T09:26:12+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   101.00%   94.65MiB / 3.782GiB   2.44%     9.72MB / 10.1MB   0B / 0B     30
+2023-07-23T09:26:14+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT    MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   112.78%   97.9MiB / 3.782GiB   2.53%     9.77MB / 10.1MB   0B / 0B     32
+2023-07-23T09:26:16+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   123.13%   94.85MiB / 3.782GiB   2.45%     9.83MB / 10.2MB   0B / 0B     30
+2023-07-23T09:26:18+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   61.17%    94.95MiB / 3.782GiB   2.45%     9.87MB / 10.2MB   0B / 0B     30
+2023-07-23T09:26:21+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   6.26%     95.06MiB / 3.782GiB   2.45%     9.91MB / 10.3MB   0B / 0B     30
+2023-07-23T09:26:25+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   17.60%    95.16MiB / 3.782GiB   2.46%     9.98MB / 10.3MB   0B / 0B     30
+2023-07-23T09:26:29+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   58.59%    95.24MiB / 3.782GiB   2.46%     10.1MB / 10.4MB   0B / 0B     30
+2023-07-23T09:26:32+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT    MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   54.52%    95.2MiB / 3.782GiB   2.46%     10.1MB / 10.5MB   0B / 0B     30
+2023-07-23T09:26:36+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   41.62%    95.26MiB / 3.782GiB   2.46%     10.2MB / 10.5MB   0B / 0B     30
+2023-07-23T09:26:38+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   40.84%    95.33MiB / 3.782GiB   2.46%     10.2MB / 10.6MB   0B / 0B     30
+2023-07-23T09:26:41+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT    MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   46.19%    95.3MiB / 3.782GiB   2.46%     10.3MB / 10.6MB   0B / 0B     30
+2023-07-23T09:26:44+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   64.13%    96.02MiB / 3.782GiB   2.48%     10.4MB / 10.7MB   0B / 0B     30
+2023-07-23T09:26:46+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   20.72%    95.73MiB / 3.782GiB   2.47%     10.4MB / 10.7MB   0B / 0B     30
+2023-07-23T09:26:50+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   38.30%    95.94MiB / 3.782GiB   2.48%     10.5MB / 10.8MB   0B / 0B     30
+2023-07-23T09:26:53+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   51.71%    95.78MiB / 3.782GiB   2.47%     10.6MB / 10.9MB   0B / 0B     30
+2023-07-23T09:26:56+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   60.89%    95.86MiB / 3.782GiB   2.48%     10.6MB / 10.9MB   0B / 0B     30
+2023-07-23T09:26:58+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O         BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   104.83%   95.87MiB / 3.782GiB   2.48%     10.7MB / 11MB   0B / 0B     30
+2023-07-23T09:27:00+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O         BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   12.87%    95.85MiB / 3.782GiB   2.48%     10.7MB / 11MB   0B / 0B     30
+2023-07-23T09:27:03+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   35.65%    95.82MiB / 3.782GiB   2.47%     10.8MB / 11.1MB   0B / 0B     30
+2023-07-23T09:27:05+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT    MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   56.52%    95.8MiB / 3.782GiB   2.47%     10.9MB / 11.2MB   0B / 0B     30
+2023-07-23T09:27:07+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   50.52%    95.81MiB / 3.782GiB   2.47%     10.9MB / 11.2MB   0B / 0B     30
+2023-07-23T09:27:10+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O         BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   75.12%    95.91MiB / 3.782GiB   2.48%     11MB / 11.3MB   0B / 0B     30
+2023-07-23T09:27:12+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   60.76%    95.89MiB / 3.782GiB   2.48%     11.1MB / 11.3MB   0B / 0B     30
+2023-07-23T09:27:14+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   36.73%    95.84MiB / 3.782GiB   2.47%     11.1MB / 11.4MB   0B / 0B     30
+2023-07-23T09:27:18+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   63.04%    95.79MiB / 3.782GiB   2.47%     11.2MB / 11.5MB   0B / 0B     30
+2023-07-23T09:27:21+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   36.03%    95.89MiB / 3.782GiB   2.48%     11.2MB / 11.5MB   0B / 0B     30
+2023-07-23T09:27:24+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   14.24%    95.86MiB / 3.782GiB   2.48%     11.3MB / 11.6MB   0B / 0B     30
+2023-07-23T09:27:26+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   33.04%    96.19MiB / 3.782GiB   2.48%     11.4MB / 11.6MB   0B / 0B     30
+2023-07-23T09:27:29+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   62.21%    96.17MiB / 3.782GiB   2.48%     11.4MB / 11.7MB   0B / 0B     30
+2023-07-23T09:27:32+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   119.67%   96.27MiB / 3.782GiB   2.49%     11.5MB / 11.8MB   0B / 0B     30
+2023-07-23T09:27:33+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   120.93%   96.11MiB / 3.782GiB   2.48%     11.6MB / 11.9MB   0B / 0B     30
+2023-07-23T09:27:35+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   114.02%   96.13MiB / 3.782GiB   2.48%     11.6MB / 11.9MB   0B / 0B     30
+2023-07-23T09:27:37+00:00
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
+fa746e75618b   scheduler-kata-db-1   1.33%     96.27MiB / 3.782GiB   2.49%     11.6MB / 11.9MB   0B / 0B     30
