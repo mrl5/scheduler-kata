@@ -15,8 +15,6 @@ Captured state for commit
 * [Predicate 2](#predicate-2)
 * [Predicate 3](#predicate-3)
 * [Predicate 4](#predicate-4)
-* [Further investigation](#further-investigation)
-* [Additional notes](#additional-notes)
 
 
 ## Main focus
@@ -340,16 +338,3 @@ rel_size     | 393216
 seq_scan     | 33709
 idx_scan     | 86611
 ```
-
-
-## Additional notes
-
-### Warnings for SQLX logs
-I see many warnings in worker logs:
-```
-WARN sqlx::query: summary="WITH t AS ( …" db.statement="\n\nWITH t AS (\n  SELECT\n    task_id as id,\n    task_created_at AS created_at\n  FROM\n    queue\n  WHERE\n    is_running = false\n    AND not_before <= now()\n  LIMIT\n    1 FOR\n  UPDATE\n    SKIP LOCKED\n)\nUPDATE\n  queue\nSET\n  is_running = true\nFROM\n  t\nWHERE\n  (task_id, task_created_at) = (t.id, t.created_at) RETURNING task_id,\n  task_created_at\n" rows_affected=0 rows_returned=1 elapsed=1.985186222s
-```
-sometimes elapsed is around **4 seconds !!!**
-
-What's interesting no locks logged in DB although `log_lock_waits=on` and
-`deadlock_timeout` is `1s`

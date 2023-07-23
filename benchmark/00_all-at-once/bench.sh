@@ -70,7 +70,14 @@ rotate_tasks() {
         -c 'DELETE FROM tenant_default.queue'
 
     psql -h localhost -U postgres -d scheduler-kata \
+        -c 'DELETE FROM tenant_default.task_bucket'
+
+    psql -h localhost -U postgres -d scheduler-kata \
         -c "UPDATE tenant_default.task SET inactive_since = null, state = null WHERE state = 'failed' OR state = 'done'"
+
+    psql -h localhost -U postgres -d scheduler-kata \
+        -c "INSERT INTO tenant_default.task_bucket SELECT created_at, not_before, id
+            FROM tenant_default.task WHERE tenant_default.task.state IS null"
 }
 
 time main "$@"

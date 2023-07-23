@@ -15,7 +15,6 @@ Captured state for commit
 * [Predicate 2](#predicate-2)
 * [Predicate 3](#predicate-3)
 * [Predicate 4](#predicate-4)
-* [Further investigation](#further-investigation)
 * [Additional notes](#additional-notes)
 
 
