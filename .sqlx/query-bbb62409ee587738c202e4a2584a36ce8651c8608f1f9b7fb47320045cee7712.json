@@ -1,0 +1,12 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "with q as (\n    delete from task_bucket using (\n        select id from task_bucket limit 100 for update skip locked\n    ) t\n    where t.id = task_bucket.id\n    returning task_bucket.id, task_bucket.created_at, task_bucket.not_before\n) insert into queue (task_id, task_created_at, not_before)\nselect id, created_at,\n    case\n        when not_before is null\n            then created_at\n        else not_before\n    end\nfrom q on conflict do nothing\n",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": []
+    },
+    "nullable": []
+  },
+  "hash": "bbb62409ee587738c202e4a2584a36ce8651c8608f1f9b7fb47320045cee7712"
+}

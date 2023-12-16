@@ -14,45 +14,15 @@ pub struct QueuePKey {
 }
 
 pub async fn enqueue(db: &DB) -> anyhow::Result<()> {
-    let _ = sqlx::query!(
-        r#"
-WITH q AS (
-    DELETE FROM task_bucket USING (
-        SELECT id FROM task_bucket LIMIT 100 FOR UPDATE SKIP LOCKED
-    ) t
-    WHERE t.id = task_bucket.id
-    RETURNING task_bucket.id, task_bucket.created_at, task_bucket.not_before
-) INSERT INTO queue (task_id, task_created_at, not_before)
-SELECT id, created_at,
-    CASE
-        WHEN not_before IS NULL
-            THEN created_at
-        ELSE not_before
-    END
-from q ON CONFLICT DO NOTHING
-        "#,
-    )
-    .execute(db)
-    .await?;
+    let _ = sqlx::query_file!("sql/enqueue.sql").execute(db).await?;
 
     Ok(())
 }
 
 pub async fn dequeue(db: &DB) -> anyhow::Result<Option<QueuePKey>> {
-    let task_id: Option<QueuePKey> = sqlx::query_as!(
-        QueuePKey,
-        r#"
-        WITH t AS (
-            SELECT task_id as id, task_created_at AS created_at FROM queue
-            WHERE is_running = false AND not_before <= now()
-            LIMIT 1 FOR UPDATE SKIP LOCKED
-        ) UPDATE queue SET is_running = true FROM t
-        WHERE (task_id, task_created_at) = (t.id, t.created_at)
-        RETURNING task_id, task_created_at
-        "#
-    )
-    .fetch_optional(db)
-    .await?;
+    let task_id: Option<QueuePKey> = sqlx::query_file_as!(QueuePKey, "sql/dequeue.sql")
+        .fetch_optional(db)
+        .await?;
 
     Ok(task_id)
 }
@@ -66,12 +36,8 @@ pub async fn process_success(db: &DB, pkey: &QueuePKey) -> anyhow::Result<()> {
 pub async fn process_failure(err: anyhow::Error, db: &DB, pkey: &QueuePKey) -> anyhow::Result<()> {
     tracing::error!("task {} failed with: {}", &pkey.task_id, err);
     let mut tx = db.begin().await?;
-    let retries: i16 = sqlx::query_scalar!(
-        r#"
-        UPDATE queue SET retries = retries + 1
-        WHERE (task_id, task_created_at) = ($1::uuid, $2::timestamptz)
-        RETURNING retries
-        "#,
+    let retries: i16 = sqlx::query_file_scalar!(
+        "sql/process_failure.init.sql",
         pkey.task_id,
         pkey.task_created_at
     )
@@ -81,11 +47,8 @@ pub async fn process_failure(err: anyhow::Error, db: &DB, pkey: &QueuePKey) -> a
     if retries >= RETRIES_HARD_LIMIT {
         finish_task(&mut *tx, pkey, TaskState::Failed).await?;
     } else {
-        let _ = sqlx::query!(
-            r#"
-            UPDATE queue SET is_running = false
-            WHERE (task_id, task_created_at) = ($1::uuid, $2::timestamptz)
-            "#,
+        let _ = sqlx::query_file!(
+            "sql/process_failure.retry.sql",
             pkey.task_id,
             pkey.task_created_at
         )
@@ -108,15 +71,8 @@ async fn finish_task(
         state = TaskState::Failed.to_string();
     }
 
-    let _ = sqlx::query!(
-        r#"
-        WITH t AS (
-            DELETE FROM queue
-            WHERE (task_id, task_created_at) = ($1::uuid, $2::timestamptz)
-            RETURNING task_id
-        ) UPDATE task SET state = $3::text, inactive_since = now() FROM t
-        WHERE id = t.task_id
-        "#,
+    let _ = sqlx::query_file!(
+        "sql/finish_task.sql",
         pkey.task_id,
         pkey.task_created_at,
         state

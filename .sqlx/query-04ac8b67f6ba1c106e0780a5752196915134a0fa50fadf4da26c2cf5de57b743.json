@@ -1,0 +1,16 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "with t as (\n    delete from queue\n    where (task_id, task_created_at) = ($1::uuid, $2::timestamptz)\n    returning task_id\n) update task set state = $3::text, inactive_since = now() from t\nwhere id = t.task_id\n",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Timestamptz",
+        "Text"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "04ac8b67f6ba1c106e0780a5752196915134a0fa50fadf4da26c2cf5de57b743"
+}

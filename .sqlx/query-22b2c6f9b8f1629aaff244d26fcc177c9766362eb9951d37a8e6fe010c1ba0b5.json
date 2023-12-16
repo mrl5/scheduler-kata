@@ -1,6 +1,6 @@
 {
   "db_name": "PostgreSQL",
-  "query": "\n        SELECT 1 as t FROM task WHERE id = $1::uuid\n        ",
+  "query": "\nselect 1 as t from task where id = $1::uuid\n        ",
   "describe": {
     "columns": [
       {
@@ -18,5 +18,5 @@
       null
     ]
   },
-  "hash": "6aab726ebe1ecd180201886e03609695dbbce8d7468f6066ff139af552e06563"
+  "hash": "22b2c6f9b8f1629aaff244d26fcc177c9766362eb9951d37a8e6fe010c1ba0b5"
 }

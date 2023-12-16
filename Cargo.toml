@@ -38,7 +38,7 @@ schemars = { version = "^0", features = ["uuid1", "chrono"] }
 serde = { version = "^1",  features = ["derive", "rc"] }
 serde_json = { version = "^1", features = ["preserve_order"] }
 strum = { version = "^0", features = ["derive"] }
-sqlx = { version = "^0", features = [
+sqlx = { version = "^0.7.3", features = [
     "chrono",
     "macros",
     "migrate",

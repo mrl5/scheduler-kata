@@ -1,0 +1,26 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "with t as (\n    select task_id as id, task_created_at as created_at\n    from queue\n    where is_running = false and not_before <= now()\n    limit 1 for update skip locked\n) update queue set is_running = true from t\nwhere (task_id, task_created_at) = (t.id, t.created_at)\nreturning task_id, task_created_at\n",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "task_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "task_created_at",
+        "type_info": "Timestamptz"
+      }
+    ],
+    "parameters": {
+      "Left": []
+    },
+    "nullable": [
+      false,
+      false
+    ]
+  },
+  "hash": "da074ef89f4bf5696c9eba7167534fe357422989766e8017735fbf0c9b38d1b2"
+}
