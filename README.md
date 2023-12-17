@@ -19,6 +19,10 @@ Expose an API that can:
 * Support running multiple instances of your code in parallel.
 
 
+## Additional materials
+[Queues in Postgres | Postgres.FM 042 | #PostgreSQL #Postgres podcast](https://www.youtube.com/watch?v=mW5z5NYpGeA) on YouTube
+
+
 ## HOWTO dev
 
 Check [CONTRIBUTING.md](./CONTRIBUTING.md)
