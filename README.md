@@ -20,7 +20,9 @@ Expose an API that can:
 
 
 ## Additional materials
-[Queues in Postgres | Postgres.FM 042 | #PostgreSQL #Postgres podcast](https://www.youtube.com/watch?v=mW5z5NYpGeA) on YouTube
+* [Queues in Postgres | Postgres.FM 042 | #PostgreSQL #Postgres podcast](https://www.youtube.com/watch?v=mW5z5NYpGeA) on YouTube
+* [PGMQ](https://github.com/tembo-io/pgmq) A lightweight message queue. Like AWS SQS and RSMQ but on Postgres
+* [River](https://github.com/riverqueue/river) Atomic, transaction-safe, robust job queueing for Go applications. Backed by PostgreSQL and built to scale
 
 
 ## HOWTO dev
