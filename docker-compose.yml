@@ -21,7 +21,7 @@ services:
     ports:
       - 3000:3000
     environment:
-      PGRST_DB_URI: ${DB_URI}
+      PGRST_DB_URI: postgres://${DB_USER}:${DB_PASSWORD}@/${DB_NAME}?host=/var/run/postgresql
       PGRST_DB_SCHEMAS: "api, worker"
       PGRST_DB_ANON_ROLE: "anonymous"
     depends_on:
