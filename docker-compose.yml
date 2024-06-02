@@ -1,0 +1,35 @@
+services:
+  db:
+    image: timescale/timescaledb:latest-pg16
+    restart: unless-stopped
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - db_socket:/var/run/postgresql
+    ports:
+      - 5432:5432
+    command: postgres
+    environment:
+      POSTGRES_PASSWORD: ${ADMIN_DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  api:
+    image: "postgrest/postgrest:v12.0.3"
+    ports:
+      - 3000:3000
+    environment:
+      PGRST_DB_URI: ${DB_URI}
+      PGRST_DB_SCHEMAS: "api, worker"
+      PGRST_DB_ANON_ROLE: "anonymous"
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - db_socket:/var/run/postgresql
+
+volumes:
+  db_data: null
+  db_socket: null
