@@ -21,7 +21,8 @@ CREATE FUNCTION worker.dequeue (timeout int)
         FROM
             worker.task
         WHERE
-            vt <= clock_timestamp()
+            state IS NULL
+            AND vt <= clock_timestamp()
             -- no retries
             AND read_ct < 1
         ORDER BY
@@ -32,8 +33,8 @@ CREATE FUNCTION worker.dequeue (timeout int)
     UPDATE
         worker.task t
     SET
-        vt = clock_timestamp() + timeout::text::interval,
         read_ct = read_ct + 1,
+        vt = clock_timestamp() + timeout::text::interval,
         updated_at = clock_timestamp()
     FROM
         cte
@@ -51,7 +52,6 @@ CREATE FUNCTION worker.complete_task (id uuid)
     UPDATE
         worker.task t
     SET
-        vt = clock_timestamp(),
         updated_at = clock_timestamp(),
         state = 'done'
     WHERE

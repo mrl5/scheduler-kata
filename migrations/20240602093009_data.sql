@@ -3,8 +3,8 @@ CREATE TABLE data.task (
     -- trick: reduce table size by rearranging columns: https://youtu.be/9_pbEVeMEB4?t=1082
     read_ct smallint NOT NULL DEFAULT 0,
     created_at timestamptz NOT NULL DEFAULT now(),
-    updated_at timestamptz DEFAULT NULL,
-    vt timestamptz NOT NULL CONSTRAINT vt_check CHECK (vt >= now()) DEFAULT now(),
+    updated_at timestamptz NOT NULL DEFAULT now(),
+    vt timestamptz NOT NULL CONSTRAINT vt_check CHECK (vt >= created_at AND vt < updated_at + '1 day') DEFAULT now(),
     id uuid PRIMARY KEY DEFAULT public.uuid_generate_v7 (),
     typ text NOT NULL CONSTRAINT typ_check CHECK (typ IN ('type_a', 'type_b', 'type_c')),
     state text DEFAULT NULL CONSTRAINT state_check CHECK (state IN (NULL, 'deleted', 'done'))

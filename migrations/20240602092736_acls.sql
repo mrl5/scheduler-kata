@@ -6,6 +6,8 @@ CREATE SCHEMA data;
 
 CREATE SCHEMA api;
 
+CREATE SCHEMA api_util;
+
 CREATE SCHEMA worker;
 
 CREATE ROLE data_ro_group nologin;
@@ -41,6 +43,8 @@ SELECT
 , UPDATE ON TABLES TO worker_group;
 
 GRANT USAGE ON SCHEMA api TO data_ro_group;
+
+GRANT USAGE ON SCHEMA api_util TO data_ro_group;
 
 GRANT USAGE ON SCHEMA worker TO worker_group;
 

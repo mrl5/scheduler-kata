@@ -20,6 +20,7 @@ SELECT
     ELSE
         state
     END,
+    vt AS not_before,
     created_at,
     updated_at,
     CASE WHEN read_ct = 0 THEN
