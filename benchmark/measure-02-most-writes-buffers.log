@@ -1,0 +1,19 @@
+                        query                         | shared_blks_dirtied 
+------------------------------------------------------+---------------------
+ INSERT INTO api.task (typ)                          +|                 573
+     VALUES ($1)                                      | 
+ SELECT                                              +|                  26
+     set_config($1, id::text, $2)                    +| 
+ FROM (                                              +| 
+     SELECT                                          +| 
+         id                                          +| 
+     FROM                                            +| 
+         worker.dequeue ($3))                         | 
+ SELECT                                              +|                  18
+     id                                              +| 
+ FROM                                                +| 
+     worker.dequeue ($1)                              | 
+ SELECT                                              +|                   4
+     worker.complete_task (current_setting($1)::uuid) | 
+(4 rows)
+

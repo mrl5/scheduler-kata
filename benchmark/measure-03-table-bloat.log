@@ -1,0 +1,11 @@
+-[ RECORD 1 ]------+-------
+table_len          | 811008
+tuple_count        | 3316
+tuple_len          | 751554
+tuple_percent      | 92.67
+dead_tuple_count   | 14
+dead_tuple_len     | 6127
+dead_tuple_percent | 0.76
+free_space         | 25288
+free_percent       | 3.12
+

@@ -19,7 +19,7 @@ dev-tools:
     cargo install hurl sqlx-cli
 
 lint:
-    pg_format -i migrations/*.sql
+    pg_format -i migrations/*.sql benchmark/*.sql
 
 test:
     hurl --test tests/*
