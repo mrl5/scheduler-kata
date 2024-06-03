@@ -1,21 +1,21 @@
    datname    | total_exec_time | calls | rows  | avg_time | percentage_cpu |                     short_query                      
 --------------+-----------------+-------+-------+----------+----------------+------------------------------------------------------
- scheduler_v4 |       105606.29 |    30 |    30 |  3520.21 |          49.36 | SELECT                                              +
-              |                 |       |       |          |                |     id                                              +
-              |                 |       |       |          |                | FROM                                                +
-              |                 |       |       |          |                |     worker.dequeue ($1)
- scheduler_v4 |       101631.77 |    30 |    30 |  3387.73 |          47.50 | SELECT                                              +
+ scheduler_v4 |        56801.19 |  1095 |  1095 |    51.87 |          46.01 | SELECT                                              +
               |                 |       |       |          |                |     set_config($1, id::text, $2)                    +
               |                 |       |       |          |                | FROM (                                              +
               |                 |       |       |          |                |     SELECT                                          +
               |                 |       |       |          |                |         id                                          +
               |                 |       |       |          |                |     FROM                                            +
               |                 |       |       |          |                |         worker.dequeue ($3))
- scheduler_v4 |         6678.14 | 25994 | 25994 |     0.26 |           3.12 | INSERT INTO api.task (typ)                          +
+ scheduler_v4 |        56684.89 |  2092 |  2092 |    27.10 |          45.92 | SELECT                                              +
+              |                 |       |       |          |                |     id                                              +
+              |                 |       |       |          |                | FROM                                                +
+              |                 |       |       |          |                |     worker.dequeue ($1)
+ scheduler_v4 |         6913.07 | 26230 | 26230 |     0.26 |           5.60 | INSERT INTO api.task (typ)                          +
               |                 |       |       |          |                |     VALUES ($1)
- scheduler_v4 |           26.91 |    30 |    30 |     0.90 |           0.01 | SELECT                                              +
+ scheduler_v4 |         3045.03 |  1095 |  1095 |     2.78 |           2.47 | SELECT                                              +
               |                 |       |       |          |                |     worker.complete_task (current_setting($1)::uuid)
- scheduler_v4 |            0.11 |     1 |     1 |     0.11 |           0.00 | SELECT                                              +
+ scheduler_v4 |            0.09 |     1 |     1 |     0.09 |           0.00 | SELECT                                              +
               |                 |       |       |          |                |     pg_stat_statements_reset ()
 (5 rows)
 

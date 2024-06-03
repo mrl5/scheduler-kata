@@ -8,7 +8,9 @@ SELECT
     updated_at,
     read_ct
 FROM
-    data.task;
+    data.task
+WHERE
+    state IS NULL;
 
 GRANT SELECT, UPDATE ON worker.task TO worker_group;
 
