@@ -28,6 +28,7 @@ main() {
     execute_sql -f "$SCRIPT_DIR"/measure-02-most-writes-buffers.sql > "$SCRIPT_DIR"/measure-02-most-writes-buffers.log
     execute_sql -c 'CREATE EXTENSION IF NOT EXISTS pgstattuple'
     execute_sql -x -f "$SCRIPT_DIR"/measure-03-table-bloat.sql > "$SCRIPT_DIR"/measure-03-table-bloat.log
+    execute_sql -x -f "$SCRIPT_DIR"/measure-04-table-stats.sql > "$SCRIPT_DIR"/measure-04-table-stats.log
 }
 
 execute_sql() {

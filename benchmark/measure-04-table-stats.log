@@ -1,0 +1,8 @@
+-[ RECORD 1 ]----+------
+table_name       | task
+sequential_scans | 0
+index_scans      | 9178
+inserts          | 25890
+updates          | 5246
+hot_updates      | 0
+
