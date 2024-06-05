@@ -1,0 +1,15 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "UPDATE\n    worker.task t\nSET\n    updated_at = clock_timestamp(),\n    state = $2::text\nWHERE\n    t.id = $1::uuid;\n\n",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Text"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "da74084837a4e4bef316f8546dff40106b7355160ec3fb1c5229d8c03a1737a1"
+}

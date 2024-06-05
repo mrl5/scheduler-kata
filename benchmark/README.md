@@ -41,7 +41,7 @@ Block device: Samsung SSD 850 PRO 256GB
 
 ## Setup
 ```
-just db-only
+docker compose up db_bench
 just db-bootstrap db-migrate
 ./benchmark/bench.sh
 ```
