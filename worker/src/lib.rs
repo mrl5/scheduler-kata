@@ -6,6 +6,7 @@ use error::Error;
 use rand::{thread_rng, Rng};
 use sqlx::postgres::PgListener;
 use sqlx::types::Uuid;
+use std::env::var;
 use std::thread::sleep;
 use std::time::Duration;
 use tokio::spawn;
@@ -37,7 +38,11 @@ async fn run_worker(db: DB) -> anyhow::Result<()> {
 async fn run_worker_blocking(db: DB) -> anyhow::Result<()> {
     let mut listener = PgListener::connect_with(&db).await?;
     let channel = "task.new";
-    let mut sleep = interval(Duration::from_secs(10));
+    let poll_sleep: u64 = var("WORKER_POLL_SLEEP_MS")
+        .unwrap_or("10".to_owned())
+        .parse()
+        .unwrap_or(10);
+    let mut sleep = interval(Duration::from_millis(poll_sleep));
     loop {
         if let Some(pkey) = dequeue(&db, Duration::from_secs(10)).await? {
             let _ = work(&db, pkey)

@@ -52,4 +52,6 @@ Expose an API that can:
   performance improvements
 
 * [v4](https://github.com/mrl5/scheduler-kata) new approach inspired by
-  [PGMQ](https://github.com/tembo-io/pgmq) but also other additional materials
+  [PGMQ](https://github.com/tembo-io/pgmq) but also other additional materials.
+  Some learnings:
+  * long polling vs short polling trade-offs
