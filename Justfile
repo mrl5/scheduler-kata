@@ -24,7 +24,7 @@ dev-tools:
 lint:
     pg_format -i migrations/*.sql benchmark/*.sql worker/sql/*.sql
     rustfmt worker/src/*.rs
-    cargo clippy --fix --allow-staged --allow-dirty
+    SQLX_OFFLINE=true cargo clippy --fix --allow-staged --allow-dirty
 
 test:
     hurl --test tests/*

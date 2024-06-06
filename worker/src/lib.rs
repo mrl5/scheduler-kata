@@ -4,6 +4,7 @@ pub mod error;
 use db::DB;
 use error::Error;
 use rand::{thread_rng, Rng};
+use sqlx::postgres::PgListener;
 use sqlx::types::Uuid;
 use std::thread::sleep;
 use std::time::Duration;
@@ -19,7 +20,7 @@ pub async fn run_workers(db: DB, workers_count: u8) -> anyhow::Result<()> {
                 workers.push(run_worker(db.clone()).await?);
             }
         }
-        run_worker_blocking(db.clone()).await;
+        run_worker_blocking(db.clone()).await?;
     }
 
     Ok(())
@@ -27,30 +28,40 @@ pub async fn run_workers(db: DB, workers_count: u8) -> anyhow::Result<()> {
 
 async fn run_worker(db: DB) -> anyhow::Result<()> {
     spawn(async move {
-        run_worker_blocking(db).await;
+        let _ = run_worker_blocking(db).await;
     });
 
     Ok(())
 }
 
-async fn run_worker_blocking(db: DB) {
-    let mut sleep = interval(Duration::from_millis(10));
+async fn run_worker_blocking(db: DB) -> anyhow::Result<()> {
+    let mut listener = PgListener::connect_with(&db).await?;
+    let channel = "task.new";
+    let mut sleep = interval(Duration::from_secs(10));
     loop {
-        // note: this is interesting - w/o this interval one cpu thread is always 100%
-        sleep.tick().await;
-        let _ = work(&db).await.map_err(|e| tracing::error!("{:?}", e));
+        if let Some(pkey) = dequeue(&db, Duration::from_secs(10)).await? {
+            let _ = work(&db, pkey)
+                .await
+                .map_err(|e| tracing::error!("{:?}", e));
+        } else {
+            listener.listen(channel).await?;
+            let msg = listener.recv();
+            let timeout = sleep.tick();
+
+            tokio::select! {
+                _ = msg => (),
+                _ = timeout => (),
+            }
+            listener.unlisten(channel).await?;
+        }
     }
 }
 
-async fn work(db: &DB) -> anyhow::Result<()> {
-    if let Some(pkey) = dequeue(db, Duration::from_secs(10)).await? {
-        match mock_job(pkey) {
-            Ok(_) => process_success(db, pkey).await?,
-            Err(e) => process_failure(e, db, pkey).await?,
-        };
+async fn work(db: &DB, pkey: Uuid) -> anyhow::Result<()> {
+    match mock_job(pkey) {
+        Ok(_) => process_success(db, pkey).await,
+        Err(e) => process_failure(e, db, pkey).await,
     }
-
-    Ok(())
 }
 
 fn mock_job(_pkey: Uuid) -> anyhow::Result<()> {
