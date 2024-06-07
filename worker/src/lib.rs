@@ -3,14 +3,16 @@ pub mod error;
 
 use db::DB;
 use error::Error;
-use rand::{thread_rng, Rng};
+use rand::random;
 use sqlx::postgres::PgListener;
 use sqlx::types::Uuid;
 use std::env::var;
-use std::thread::sleep;
 use std::time::Duration;
-use tokio::spawn;
-use tokio::time::interval;
+use tokio::{
+    spawn,
+    time::{interval, sleep},
+};
+use tokio_util::sync::CancellationToken;
 
 pub async fn run_workers(db: DB, workers_count: u8) -> anyhow::Result<()> {
     let mut workers = vec![];
@@ -63,19 +65,46 @@ async fn run_worker_blocking(db: DB) -> anyhow::Result<()> {
 }
 
 async fn work(db: &DB, pkey: Uuid) -> anyhow::Result<()> {
-    match mock_job(pkey) {
+    let mut listener = PgListener::connect_with(db).await?;
+    let channel = "task.delete";
+
+    let token = CancellationToken::new();
+    let cloned_token = token.clone();
+
+    tokio::spawn(async move {
+        loop {
+            listener.listen(channel).await?;
+            let notification = listener.recv().await?;
+            let task_id = notification.payload();
+            if pkey.hyphenated().to_string() == task_id {
+                token.cancel();
+                return anyhow::Ok(());
+            }
+        }
+    });
+
+    match mock_job(pkey, cloned_token).await {
         Ok(_) => process_success(db, pkey).await,
         Err(e) => process_failure(e, db, pkey).await,
     }
 }
 
-fn mock_job(_pkey: Uuid) -> anyhow::Result<()> {
-    let mut rng = thread_rng();
-
-    sleep(Duration::from_secs(rng.gen_range(2..7)));
-    match rng.gen_bool(0.5) {
-        true => Ok(()),
-        false => Err(Error::WorkerError("zonk".to_string()).into()),
+async fn mock_job(pkey: Uuid, token: CancellationToken) -> anyhow::Result<()> {
+    let rnd_factor: f32 = random();
+    tokio::select! {
+        _ = sleep(Duration::from_secs(5 + (4.0 * rnd_factor).floor() as u64)) => {
+            match random() {
+                true => {
+                    tracing::info!("finished task {pkey}");
+                    Ok(())
+                },
+                false => Err(Error::WorkerError("zonk".to_string()).into()),
+            }
+        },
+        _ = token.cancelled() => {
+            tracing::info!("cancelled task {pkey}");
+            Ok(())
+        },
     }
 }
 
@@ -92,7 +121,7 @@ async fn dequeue(db: &DB, timeout: Duration) -> anyhow::Result<Option<Uuid>> {
 }
 
 async fn process_failure(err: anyhow::Error, db: &DB, task_id: Uuid) -> anyhow::Result<()> {
-    tracing::error!("task {} failed with: {}", &task_id, err);
+    tracing::error!("task {task_id} failed with: {err}");
 
     sqlx::query_file!("sql/finish.sql", task_id, "failed")
         .fetch_optional(db)

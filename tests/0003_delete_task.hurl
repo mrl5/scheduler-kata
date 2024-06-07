@@ -83,6 +83,7 @@ HTTP 200
 
 [Asserts]
 jsonpath "$.id" == {{queued_task_id}}
+jsonpath "$.state" == "deleted"
 
 POST http://0.0.0.0:3000/rpc/delete_task?select=id,state,updated_at
 Prefer: return=representation
@@ -93,7 +94,8 @@ Prefer: return=representation
 HTTP 200
 
 [Asserts]
-jsonpath "$.id" == null
+jsonpath "$.id" == {{running_task_id}}
+jsonpath "$.state" == "cancelled"
 
 POST http://0.0.0.0:3000/rpc/delete_task?select=id,state,updated_at
 Prefer: return=representation
