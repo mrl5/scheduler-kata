@@ -26,6 +26,9 @@ Expose an API that can:
 ## Additional materials
 * [Queues in Postgres | Postgres.FM 042 | #PostgreSQL #Postgres
   podcast](https://www.youtube.com/watch?v=mW5z5NYpGeA) on YouTube
+* [Choose Postgres queue
+  technology](https://adriano.fyi/posts/2023-09-24-choose-postgres-queue-technology/)
+  by Adriano Caloiaro
 * [PGMQ](https://github.com/tembo-io/pgmq) A lightweight message queue. Like
   AWS SQS and RSMQ but on Postgres
 * [River](https://github.com/riverqueue/river) Atomic, transaction-safe, robust
